@@ -1,0 +1,111 @@
+// susy grids v1.0.8 layout
+
+$max-width: 1140px; // site maximum width
+$total-columns: 12; // column grids
+$gutter-width: 4em; // gutters between columns
+$grid-padding: 1em; // grid outer padding
+$show-grid-backgrounds: false; // show highlighted grid columns? true/false
+
+[id="wrapper"] {
+    @include container; // set susy grid container
+    @include susy-grid-background; // highlight grid columns
+    max-width: $max-width;
+}
+.access-nav {
+
+    @include breakpoint(large) {
+        float: right;
+    }
+}
+[id="container"] {
+
+	@include breakpoint(large) {
+	    @include span-columns(8, 12);
+	}
+}
+[id="comments-list"] {
+    .children {
+
+        @include breakpoint(medium) {
+              @include pad(1,1);
+        }
+    }
+}
+[id="primary"] {
+
+    @include breakpoint(large) {
+        @include span-columns(4 omega, 12);
+    }
+}
+[id="secondary"] {
+
+    @include breakpoint(large) {
+        @include span-columns(4 omega, 12);
+        clear: right;
+    }
+}
+[id="first"] {
+
+    @include breakpoint(large) {
+        @include span-columns(4, 12);
+    }
+}
+[id="second"] {
+
+    @include breakpoint(large) {
+        @include span-columns(4, 12);
+    }
+}
+[id="third"] {
+
+    @include breakpoint(large) {
+        @include span-columns(4 omega, 12);
+    }
+}
+
+// grouping common layout specific properties
+
+.hentry {
+    margin-bottom: $spacing*2;
+    clear: both;
+}
+
+.entry-utility {
+     clear: both;
+}
+
+[id="header"],
+[id="main"],
+[id="subsidiary"] {
+    @extend %clearfix;
+    margin-bottom: $spacing*2;
+}
+
+[id="footer-widget"] {
+    clear: both;
+}
+
+// page templates
+// ==========================================================================
+
+// fullwidth template overrides
+.page-template-template-page-fullwidth-php {
+    [id="container"] {
+
+        @include breakpoint(large) {
+            @include span-columns(12 omega, 12);
+        }
+    }
+}
+
+// attachments template overrides
+.single-attachment {
+    [id="container"] {
+        @include span-columns(12 omega, 12);
+    }
+    [id="primary"],
+    [id="secondary"],
+    [id="respond"] {
+        display: none;
+    }
+}

@@ -1,0 +1,504 @@
+/*!
+Theme Name: ScottNix2014 for Thematic
+Theme URI: http://scottnix.com/
+Description: Test version of new theme for Thematic 2.0, created from an update to previous themes.
+Author: Scott Nix
+Author URI: http://scottnix.com/
+Template: thematic
+Version: 0.1.0
+Tags: thematic, child, responsive
+*/
+
+// ==========================================================================
+// load supporting files (compass, variables, mixins)
+// ==========================================================================
+
+@import 'base';
+
+/* ==========================================================================
+   basic styles
+   ========================================================================== */
+
+*,
+*:before,
+*:after {
+    @include box-sizing(border-box);
+}
+html {
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+}
+body {
+    margin: 0;
+    background: $background;
+    font-family: $body-font;
+    font-size: 100%;
+    line-height: 1.625;
+    color: $body-color;
+
+    @include breakpoint(medium) {
+        font-size: 112.5%;
+    }
+    @include breakpoint(large) {
+        font-size: 125%;
+    }
+}
+h1 {
+    margin: 0 0 0.5417em;
+    font-family: $header-font;
+    font-size: 2.25em;
+    line-height: 1.0833em;
+    color: $header-color;
+}
+h2 {
+    margin: 0 0 0.7222em;
+    font-family: $header-font;
+    font-size: 1.875em;
+    line-height: 1.4444em;
+    color: $header-color;
+}
+h3 {
+    margin: 0 0 0.8667em;
+    font-family: $header-font;
+    font-size: 1.5em;
+    line-height: 1.7333em;
+    color: $header-color;
+}
+h4 {
+    margin: 0 0 1.0833em;
+    font-family: $header-font;
+    font-size: 1.375em;
+    line-height: 1.0833em;
+    color: $header-color;
+}
+h5 {
+    margin: 0 0 1.1818em;
+    font-family: $header-font;
+    font-size: 1.125em;
+    line-height: 1.1818em;
+    color: $header-color;
+}
+h6 {
+    margin: 0 0 1.4444em;
+    font-family: $header-font;
+    font-size: 1em;
+    line-height: 1.4444em;
+    color: $header-color;
+}
+a {
+    @include transition(color .3s ease-in-out, background-color .3s ease-in-out);
+    background: transparent;
+    color: $accent-link;
+    text-decoration: none;
+    &:visited {
+        color: $accent-link;
+    }
+    &:focus {
+        color: $accent-focus;
+        outline: thin dotted;
+    }
+    &:active,
+    &:hover {
+        color: $accent-hover;
+        outline: 0;
+    }
+}
+img {
+    border: 0;
+}
+p,
+address,
+figure,
+embed,
+.video-container {
+    margin: 0 0 $spacing;
+}
+ul {
+    margin: 0 0 $spacing;
+    list-style: disc;
+}
+ol {
+    margin: 0 0 $spacing;
+    list-style-type: decimal;
+    ol {
+        list-style: upper-alpha;
+        ol {
+            list-style: lower-roman;
+            ol {
+                list-style: lower-alpha;
+            }
+        }
+    }
+}
+ul ul,
+ul ol,
+ol ul,
+ol ol {
+    margin-bottom: 0;
+}
+dl {
+    margin: 0 1em;
+}
+dt {
+    font-weight: bold;
+}
+dd {
+    margin: 0 0 $spacing;
+}
+b,
+strong {
+    font-weight: bold;
+}
+abbr[title],
+acronym {
+    cursor: help;
+    border-bottom: 1px dotted;
+}
+ins {
+    border-bottom: 1px solid $accent-color;
+    text-decoration: none;
+}
+caption {
+    text-align: center;
+}
+blockquote {
+    margin: 0 0 $spacing;
+    p {
+        padding-left: 1em;
+        border-left: 5px solid $accent-color;
+    }
+}
+q {
+    quotes: "\201C" "\201D" "\2018" "\2019";
+    &:before {
+        content: open-quote;
+    }
+    &:after {
+        content: close-quote;
+    }
+}
+code,
+kbd,
+pre,
+samp {
+    font-family: monospace, serif;
+    font-size: 1em;
+}
+pre {
+    margin: 0 0 $spacing;
+    white-space: pre-wrap;
+}
+code {
+    padding: 0 .2em;
+    background: $background-secondary;
+}
+small {
+    font-size: 80%;
+}
+sub,
+sup {
+    font-size: 75%;
+    line-height: 0;
+    position: relative;
+    vertical-align: baseline;
+}
+sup {
+    top: -0.5em;
+}
+sub {
+    bottom: -0.25em;
+}
+hr {
+    display: block;
+    height: 1px;
+    margin: 0 0 $spacing;
+    border: 0;
+    background: $accent-color;
+    color: $accent-color;
+}
+table {
+    margin: 0 0 $spacing;
+    border: 1px solid $accent-color;
+    border-width: 1px 1px 0;
+    border-collapse: collapse;
+    border-spacing: 0;
+    text-align: left;
+}
+tr {
+    border-bottom: 1px solid $accent-color;
+}
+th,
+td {
+    padding: .7em 1.25em;
+    vertical-align: top;
+}
+::-moz-selection {
+    background: $selection-background;
+    color: $selection-color;
+    text-shadow: none;
+}
+::selection {
+    background: $selection-background;
+    color: $selection-color;
+    text-shadow: none;
+}
+
+/* ==========================================================================
+   theme fonts
+   ========================================================================== */
+
+@import 'fonts';
+
+/* ==========================================================================
+   layout structure
+   ========================================================================== */
+
+// options - 1c-advanced, 2c-r-sidebar, 2c-l-sidebar, layout (for starting your own)
+@import 'layouts/2c-r-sidebar';
+
+/* ==========================================================================
+   content styles
+   ========================================================================== */
+
+.site-wrapper {
+    margin: 0 auto;
+}
+.site-header {}
+.branding {
+    margin: 0 auto;
+    padding: $spacing 0;
+}
+.site-title {
+    @extend h2;
+    margin: 0;
+    padding: 0;
+}
+.tagline {
+    margin: 0;
+    font-family: $body-font;
+    font-size: 100%;
+    font-weight: normal;
+    line-height: $spacing;
+    text-shadow: none;
+}
+[role="navigation"] {
+    z-index: 1;
+}
+
+// Brad Frost Mobile Patterns - Skip Nav
+// http://codepen.io/bradfrost/pen/vljdx
+.menu-toggle {
+    float: right;
+    display: block;
+    padding: 1em;
+}
+.menu,
+.menu > ul ul {
+    clear: both;
+    @include transition(all 1s ease-in-out);
+}
+.js .menu,
+.js .menu > ul ul {
+    overflow: hidden;
+    max-height: 0;
+}
+.menu.active,
+.js .menu > ul ul.active {
+    max-height: 55em;
+}
+.menu ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+.menu li a {
+    display: block;
+    padding: .2em;
+    position: relative;
+}
+
+
+        @media screen and (min-width: 48.25em) {
+            .menu-toggle {
+               display: none;
+            }
+            .js .menu,
+            .js .menu > ul ul {
+                max-height: none;
+                overflow: visible;
+                background: none;
+            }
+            .js .menu > ul ul {
+                display: none;
+            }
+            .js .menu > ul li:hover > ul {
+                display: block;
+            }
+            .menu ul {
+                margin: 0 0 0 -0.25em;
+                border: 0;
+            }
+            .menu li a {
+                border: 0;
+            }
+            .menu li.menu-item-has-children > a {
+            }
+            .menu li.menu-item-has-children > a:after {
+                content: ">";
+            }
+            .menu ul > li.menu-item-has-children > a:after {
+                content: "▼";
+            }
+            .menu > ul li {
+                margin: 0 0.25em;
+            }
+            .menu > ul > li {
+                display: inline-block;
+                position: relative;
+            }
+            .menu > ul ul {
+                position: absolute;
+                top: 2em; // this has to match height of menu, have to eyball it
+                left: 0;
+                width: 12em;
+            }
+            .menu > ul ul li {
+                position: relative;
+            }
+            .menu > ul ul ul {
+                position: absolute;
+                top: 0;
+                left: 100%;
+                width: 12em;
+            }
+        }
+
+
+.site-main {}
+.content-wrapper {}
+.site-content {}
+.page-title {
+    @extend h6;
+}
+.hentry {}
+.entry-header {}
+.entry-title {
+    @extend h1;
+}
+.entry-content {}
+.entry-utility {
+    ul {
+        margin: 0;
+        padding: 0;
+    }
+    li {
+        list-style: none;
+    }
+    a {
+        border-bottom: 1px dotted $accent-color;
+    }
+    [class*="icon-"]:before {
+        padding-right: 1em;
+    }
+}
+
+/* asides, sidebars & widget-ready areas
+   ========================================================================== */
+
+.aside {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    ul,
+    section {
+        list-style: none;
+        padding: 0;
+        margin: 0 0 $spacing;
+        ul {
+            li {
+                padding: .1em 0;
+            }
+            ul {
+                margin: 0 0 0 $spacing/2;
+            }
+        }
+    }
+    img,
+    select {
+        max-width: 100%;
+    }
+    [id="search-form"] input {
+        width: 100%;
+    }
+    [id="search-submit"] {
+        display: none;
+    }
+}
+[id="content"] .aside {
+    margin: 0 0 $spacing;
+}
+.widgettitle {
+    @extend h4;
+    padding:.5em 0;
+    border-bottom: 1px solid $accent-color;
+}
+[id="primary"] {
+    margin-bottom: $spacing;
+}
+[id="secondary"] {}
+[id="footer"] {}
+[id="subsidiary"] {}
+[id="first"] {}
+[id="secondary"] {}
+[id="third"] {}
+[id="footer-widget"] {}
+[id="siteinfo"] {}
+
+/* images
+   ========================================================================== */
+
+@import 'images';
+
+/* navigational elements and buttons
+   ========================================================================== */
+
+@import 'navigation-buttons-and-forms';
+
+/* comments
+   ========================================================================== */
+
+@import 'comments';
+
+/* specific pages and templates
+   ========================================================================== */
+
+@import 'pages-and-templates';
+
+/* internet explorer (old IE, 6, 7 and 8 fixes)
+   ========================================================================== */
+
+@import 'internet-explorer';
+
+/* plugins
+   ========================================================================== */
+
+@import 'plugins';
+
+// helper classes - html5boilerplate.com (setup as SASS placeholders)
+// ==========================================================================
+
+@import 'helper-classes';
+
+/* ==========================================================================
+   print styles - html5boilerplate.com
+   ========================================================================== */
+
+@media print {
+    @import 'print-styles';
+
+    // custom additions
+    [id="access"],
+    .aside,
+    .navigation {
+        display: none;
+    }
+}

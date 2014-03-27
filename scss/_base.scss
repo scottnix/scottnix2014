@@ -1,0 +1,60 @@
+// import compass - compass-style.org/reference/compass/
+// import susy - susy.oddbird.net/
+// ==========================================================================
+
+@import 'compass', 'susy';
+
+// sass variables - http://sass-lang.com/docs/yardoc/file.SASS_REFERENCE.html#variables_
+// ==========================================================================
+
+$background: #34495e;
+$background-secondary: darken($background, 10%);
+
+$header-font: "Helvetica Neue", Helvetica, Arial, sans-serif;
+$header-color: #ecf0f1;
+$header-link: #1ccdaa;
+
+$body-font: "Helvetica Neue", Helvetica, Arial, sans-serif;
+$body-color: #ecf0f1;
+$body-link: #1ccdaa;
+$body-hover: lighten($body-color, 30%);
+$body-focus: lighten($body-color, 30%);
+
+$accent-color: #1ccdaa;
+$accent-link: #1ccdaa;
+$accent-hover: lighten($accent-color, 30%);
+$accent-focus: lighten($accent-color, 30%);
+$accent-color-secondary: darken($accent-color, 10%);
+
+$transparency-light: rgba(black, .02);
+$transparency-medium: rgba(black, .05);
+$transparency-dark: rgba(black, .1);
+
+$selection-background: #fe57a1; // html5boilerplate pink lives on!
+$selection-color: #f1f1f1;
+
+$spacing: 1.625em; // default spacing
+
+// css development classes (for testing)
+// ==========================================================================
+
+// div { background: rgba(black, .05) !important; } // highlight divs
+// ul { background: rgba(black, .05) !important; } // highlight unordered lists
+// li { background: rgba(black, .05) !important; } // highlight list items
+// p { background: rgba(black, .05) !important; } // highlight paragraphs
+
+// sass mixins - sass-lang.com/docs/yardoc/file.SASS_REFERENCE.html#mixins
+// ==========================================================================
+
+// media query breakpoint mixin - scottnix.com/placement-of-media-queries/
+@mixin breakpoint($point) {
+    @if $point == medium {
+        @media (min-width: 30em)  { @content; }
+    }
+    @else if $point == large {
+        @media (min-width: 50em) { @content; }
+    }
+    @else if $point { // allows custom breakpoints
+        @media (min-width: $point) { @content; }
+    }
+}
