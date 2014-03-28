@@ -26,7 +26,8 @@
 // .icon-untitled:before,
 .icon-folder:before,
 .icon-comment:before,
-.icon-mail:before {
+.icon-mail:before,
+.icon-codepen:before {
     font-family: 'entypo';
     speak: none;
     font-style: normal;
@@ -59,6 +60,9 @@
 }
 .icon-arrow-left:before {
     content: "\e007";
+}
+.icon-codepen:before {
+  content: "\e010";
 }
 // .icon-arrow-left-2:before {
 //     content: "\e008";
