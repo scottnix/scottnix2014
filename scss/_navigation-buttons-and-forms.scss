@@ -9,7 +9,7 @@ legend {
 }
 form,
 select {
-    margin-bottom: $spacing;
+    margin-bottom: $spacing-gamma;
 }
 input {
     line-height: normal;
@@ -21,7 +21,7 @@ textarea {
 }
 input,
 textarea {
-    padding: $spacing/2;
+    padding: $spacing-alpha;
     border: none;
     background: $background-secondary;
     font-family: $body-font;
@@ -84,38 +84,131 @@ input[type="submit"] {
     position: relative;
     display: inline-block;
     overflow: visible;
-    padding: $spacing/2;
+    padding: $spacing-alpha;
     border: none;
     background: $background-secondary;
     color: $accent-color;
     cursor: pointer;
     text-align: center;
     &:hover {
-        background: lighten($background-secondary, 5%);
+        background: lighten($background-secondary-accent, 5%);
     }
 }
-.navigation {
-    @extend %clearfix;
-    margin: 0 0 $spacing;
-    .nav-previous,
-    .nav-next {
-        @extend .button;
-        width: 50%;
 
-        @include breakpoint(medium) {
-            width: auto;
-        }
-    }
-    .nav-previous {
-        float: left;
-        text-align: left;
-    }
-    .nav-next {
-        float: right;
-        text-align: right;
-    }
-    .meta-nav {}
+#nav-below {
+  margin: 0 0 1.625em;
+  overflow: hidden;
+  clear: both;
 }
+#nav-below .meta-nav {
+  font-style: normal;
+}
+@media (min-width: 30em) {
+  #nav-below .nav-previous {
+    float: left;
+  }
+  #nav-below .nav-next {
+    float: right;
+    text-align: right;
+  }
+}
+
+@media (min-width: 80em) {
+  .nav-previous a,
+  .nav-next a {
+    -webkit-transition-property: margin, 0.5s, ease-in-out;
+    -moz-transition-property: margin, 0.5s, ease-in-out;
+    -o-transition-property: margin, 0.5s, ease-in-out;
+    transition-property: margin 0.5s ease-in-out;
+    position: fixed;
+    top: 45%;
+    width: 10em;
+    background: #dc6d61;
+    color: white;
+    padding: .5em;
+    vertical-align: middle;
+    border: 5px solid #e0e7e8;
+
+    -webkit-transform: translateZ(0);
+  }
+  .nav-previous a:after, .nav-previous a:before,
+  .nav-next a:after,
+  .nav-next a:before {
+    font: 1.5em 'entypo';
+  }
+}
+
+@media (min-width: 80em) {
+  .nav-previous a {
+    left: 0;
+    margin-left: -7.5em;
+    text-align: right;
+    vertical-align: middle;
+    float: left;
+    border-left: none;
+    border-color: white;
+  }
+  .nav-previous a:hover {
+    margin-left: 0;
+  }
+  .nav-previous a:after {
+    content: "\e007";
+    padding-left: .5em;
+    vertical-align: -.25em;
+  }
+}
+@media (min-width: 110em) {
+  .nav-previous a {
+    margin-left: 0;
+  }
+}
+
+@media (min-width: 80em) {
+  .nav-next a {
+    right: 0;
+    margin-right: -7.5em;
+    text-align: left;
+    vertical-align: middle;
+    float: right;
+    border-right: none;
+  }
+  .nav-next a:hover {
+    margin-right: 0;
+  }
+  .nav-next a:before {
+    content: "\e006";
+    padding-right: .5em;
+    vertical-align: -.25em;
+  }
+}
+@media (min-width: 110em) {
+  .nav-next a {
+    margin-right: 0;
+  }
+}
+
+// .navigation {
+//     @extend %clearfix;
+//     margin: 0 0 $spacing;
+//     .nav-previous,
+//     .nav-next {
+//         @extend .button;
+//         width: 50%;
+
+//         @include breakpoint(medium) {
+//             width: auto;
+//         }
+//     }
+//     .nav-previous {
+//         float: left;
+//         text-align: left;
+//     }
+//     .nav-next {
+//         float: right;
+//         text-align: right;
+//     }
+//     .meta-nav {}
+// }
 .more-link {}
 .edit-link {}
 .page-link,
