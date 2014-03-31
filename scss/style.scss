@@ -1,5 +1,5 @@
 /*!
-Theme Name: ScottNix2014 for Thematic
+Theme Name: ScottNix 2014 for Thematic
 Theme URI: http://scottnix.com/
 Description: Test version of new theme for Thematic 2.0, created from an update to previous themes.
 Author: Scott Nix
@@ -22,7 +22,7 @@ Tags: thematic, child, responsive
 *,
 *:before,
 *:after {
-    @include box-sizing(border-box);
+    box-sizing: border-box;
 }
 html {
     -ms-text-size-adjust: 100%;
@@ -32,9 +32,9 @@ body {
     margin: 0;
     background: $background;
     font-family: $body-font;
-    font-size: 100%;
-    line-height: 1.625;
+    font-size: 105%;
     color: $body-color;
+    line-height: 1.625;
 
     @include breakpoint(medium) {
         font-size: 112.5%;
@@ -48,58 +48,51 @@ h1 {
     font-family: $header-font;
     font-size: 2.25em;
     line-height: 1.0833em;
-    color: $header-color;
 }
 h2 {
     margin: 0 0 0.7222em;
     font-family: $header-font;
     font-size: 1.875em;
     line-height: 1.4444em;
-    color: $header-color;
 }
 h3 {
     margin: 0 0 0.8667em;
     font-family: $header-font;
     font-size: 1.5em;
     line-height: 1.7333em;
-    color: $header-color;
 }
 h4 {
     margin: 0 0 1.0833em;
     font-family: $header-font;
     font-size: 1.375em;
     line-height: 1.0833em;
-    color: $header-color;
 }
 h5 {
     margin: 0 0 1.1818em;
     font-family: $header-font;
     font-size: 1.125em;
     line-height: 1.1818em;
-    color: $header-color;
 }
 h6 {
     margin: 0 0 1.4444em;
     font-family: $header-font;
     font-size: 1em;
     line-height: 1.4444em;
-    color: $header-color;
 }
 a {
-    @include transition(color .3s ease-in-out, background-color .3s ease-in-out);
     background: transparent;
-    color: $accent-link;
     text-decoration: none;
+    color: $link-color;
     &:visited {
-        color: $accent-link;
+        color: $link-color;
     }
     &:focus {
-        color: $accent-focus;
+        color: $link-focus;
         outline: thin dotted;
     }
     &:active,
     &:hover {
-        color: $accent-hover;
+        color: $link-hover;
         outline: 0;
     }
 }
@@ -190,7 +183,7 @@ pre {
 }
 code {
     padding: 0 .2em;
-    background: $background-secondary;
+    background: $accent-color;
 }
 small {
     font-size: 80%;
@@ -253,20 +246,14 @@ td {
    layout structure
    ========================================================================== */
 
-// options - 1c-advanced, 2c-r-sidebar, 2c-l-sidebar, layout (for starting your own)
-@import 'layouts/2c-r-sidebar';
+ @import 'layouts/2c-r-sidebar';
 
 /* ==========================================================================
    content styles
    ========================================================================== */
 
-.site-wrapper {
-    margin: 0 auto;
-}
-.site-header {}
 .branding {
-    margin: 0 auto;
-    padding: $spacing 0;
+    margin: 0 0 $spacing;
 }
 .site-title {
     @extend h2;
@@ -281,21 +268,17 @@ td {
     line-height: $spacing;
     text-shadow: none;
 }
-[role="navigation"] {
-    z-index: 1;
-}
 
 // Brad Frost Mobile Patterns - Skip Nav
 // http://codepen.io/bradfrost/pen/vljdx
 .menu-toggle {
     float: right;
-    display: block;
     padding: 1em;
 }
 .menu,
 .menu > ul ul {
     clear: both;
-    @include transition(all 1s ease-in-out);
+    // transition for dropdown
 }
 .js .menu,
 .js .menu > ul ul {
@@ -317,76 +300,72 @@ td {
     position: relative;
 }
 
+@include breakpoint(large) {
+    .menu-toggle {
+       display: none;
+    }
+    .js .menu {
+        overflow: hidden;
+        max-height: none;
+    }
+    .menu li {
 
-        @media screen and (min-width: 48.25em) {
-            .menu-toggle {
-               display: none;
-            }
-            .js .menu,
-            .js .menu > ul ul {
-                max-height: none;
-                overflow: visible;
-                background: none;
-            }
-            .js .menu > ul ul {
-                display: none;
-            }
-            .js .menu > ul li:hover > ul {
-                display: block;
-            }
-            .menu ul {
-                margin: 0 0 0 -0.25em;
-                border: 0;
-            }
-            .menu li a {
-                border: 0;
-            }
-            .menu li.menu-item-has-children > a {
-            }
-            .menu li.menu-item-has-children > a:after {
-                content: ">";
-            }
-            .menu ul > li.menu-item-has-children > a:after {
-                content: "▼";
-            }
-            .menu > ul li {
-                margin: 0 0.25em;
-            }
-            .menu > ul > li {
-                display: inline-block;
-                position: relative;
-            }
-            .menu > ul ul {
-                position: absolute;
-                top: 2em; // this has to match height of menu, have to eyball it
-                left: 0;
-                width: 12em;
-            }
-            .menu > ul ul li {
-                position: relative;
-            }
-            .menu > ul ul ul {
-                position: absolute;
-                top: 0;
-                left: 100%;
-                width: 12em;
-            }
+    }
+    .menu li a {
+        background-color: none;
+
+        &:hover {
+            background-color: $background-secondary;
         }
+    }
+}
 
-
-.site-main {}
-.content-wrapper {}
-.site-content {}
 .page-title {
     @extend h6;
 }
-.hentry {}
-.entry-header {}
 .entry-title {
     @extend h1;
 }
-.entry-content {}
+.entry-content {
+    pre {
+      position: relative;
+      white-space: pre;
+      word-wrap: normal;
+      font-size: 90%;
+      &:before {
+          position: absolute;
+          top: 0;
+          right: 0;
+          padding-right: .5em;
+          opacity: 1;
+          color: $accent-color;
+          cursor: default;
+          font-size: 1em;
+        }
+        code {
+          overflow-x: scroll;
+          display: block;
+          padding: 0 1em;
+          background: darken($background, 3%);
+          // background linear gradient
+          background-size: 100% 3em;
+          background-position: 0 1.5em;
+          background-origin: content-box;
+          color: $body-color;
+          line-height: 1.5;
+          font-size: 1em;
+        }
+    }
+    .css:before { content: "CSS";  }
+    .html:before { content: "HTML"; }
+    .javascript:before { content: "JavaScript"; }
+    .jquery:before { content: "jQuery"; }
+    .php:before { content: "PHP"; }
+    .scss:before { content: "SCSS"; }
+    .sublime-snippet:before { content: "Sublime Snippet"; }
+}
 .entry-utility {
+    color: $accent-color;
     ul {
         margin: 0;
         padding: 0;
