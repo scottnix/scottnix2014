@@ -31,7 +31,7 @@ gulp.task('styles', function() {
 
 // Images
 gulp.task('images', function() {
-  return gulp.src('images/original/**/*')
+  return gulp.src('images/originals/**/*')
     .pipe(cache(imagemin({ optimizationLevel: 5, progressive: true, interlaced: true })))
     .pipe(gulp.dest('images/'))
     .pipe(livereload(server))
