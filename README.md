@@ -11,6 +11,7 @@ Todo
 * Incorporate Tim's Emwaw (http://emwaw.me/) to detach some of the styling/naming issues that are present from creating themes meant to be modified.
 * Create a new design, will be somewhat similar to old design, possibly even more simple.
 * Spend way too much time picking a friggin color scheme.
+ * Incorporate Autoprefixer, couldn't get it running in Compass, but eventually need to swap from using Compass to vendor prefix things to Autoprefixer which is much more robust at keeping with current prefixes.
 
 Demo
 -------------
