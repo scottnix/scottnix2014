@@ -60,12 +60,24 @@ add_action('wp_enqueue_scripts', 'childtheme_script_manager');
 
 // deregister styles
 function childtheme_deregister_styles() {
+    // removes contact form 7 styling
+    wp_deregister_style('contact-form-7');
+    // remove like 2 bullshit classes from jetpack on a individual CSS file
+    wp_deregister_style('jetpack-widgets');
 }
 add_action('wp_print_styles', 'childtheme_deregister_styles', 100);
 
 // deregister scripts
 function childtheme_deregister_scripts() {
-    wp_dequeue_script('thematic-js'); // removes themaitc-js which has more Superfish scripts
+    // removes themaitc-js which has more Superfish scripts
+    wp_dequeue_script('thematic-js');
+    // remove some bs gravatar script jetpack loads
+    wp_deregister_script('devicepx');
+
+    if ( ! is_page('contact') ) {
+        // remove contact form7 styles on all pages but contact page
+        wp_dequeue_script('contact-form-7');
+     }
 }
 add_action( 'wp_print_scripts', 'childtheme_deregister_scripts', 100 );
 
@@ -163,6 +175,27 @@ function childtheme_override_access() {
 }
 
 /**
+ * Single Post for Blog
+ *
+ * Shows single pages, instead of a default of 5
+ *
+ */
+
+// show one post per page on homepage
+// http://codex.wordpress.org/Plugin_API/Action_Reference/pre_get_posts
+function childtheme_home_pagesize( $query ) {
+    if ( is_admin() || ! $query->is_main_query() )
+        return;
+    if ( is_home() ) {
+        // Display only 1 post for the original blog archive
+        $query->set( 'posts_per_page', 1 );
+        return;
+    }
+
+}
+add_action( 'pre_get_posts', 'childtheme_home_pagesize', 1 );
+
+/**
  * Modify Navigational Elements
  *
  * The Navigation Above feature of Thematic is pretty silly (and ugly), so that is
@@ -176,19 +209,20 @@ function childtheme_override_nav_above() {
     // silence
 }
 
-// override the nav below, removed on single posts
 function childtheme_override_nav_below() {
-    if ( ! is_single() ) { ?>
-        <div id="nav-below" class="navigation"> <?php
-            if ( function_exists( 'wp_pagenavi' ) ) {
-                wp_pagenavi();
-             } else { ?>
-            <div class="nav-previous"><?php next_posts_link(sprintf('<span class="meta-nav">&laquo;</span> %s', __('Older posts', 'thematic') ) ) ?></div>
-            <div class="nav-next"><?php previous_posts_link(sprintf('%s <span class="meta-nav">&raquo;</span>',__( 'Newer posts', 'thematic') ) ) ?></div>
-            <?php } ?>
-        </div>  <?php
-    }
-}
+    if (is_single() || is_home()) { ?>
+        <div id="nav-below" class="navigation">
+            <div class="nav-previous"><?php previous_post_link('%link', '<span class="meta-nav"></span> Older Post'); ?> </div>
+            <div class="nav-next"><?php next_post_link('%link', 'Newer Post <span class="meta-nav"></span>'); ?> </div>
+    <?php }
+    else { ?>
+        <div id="nav-below" class="navigation">
+            <div class="nav-previous"><?php next_posts_link(__('<span class="meta-nav"></span> Older Posts', 'thematic')) ?></div>
+            <div class="nav-next"><?php previous_posts_link(__('Newer Posts <span class="meta-nav"></span>', 'thematic')) ?></div>
+    <?php } ?>
+        </div>
+<?php }
+
 
 /**
  * Thematic Featured Image Size
@@ -289,3 +323,83 @@ function childtheme_override_postfooter_posttags() {
     }
     return apply_filters('thematic_postfooter_posttags',$posttags);
 }
+
+
+
+
+
+
+
+// from original
+
+/*// hide unused widget areas inside the WordPress admin
+function childtheme_hide_areas($content) {
+    unset($content['Index Top']);
+    unset($content['Index Insert']);
+    unset($content['Index Bottom']);
+    unset($content['Single Top']);
+    unset($content['Single Insert']);
+    unset($content['Single Bottom']);
+    unset($content['Page Top']);
+    unset($content['Page Bottom']);
+    return $content;
+}
+add_filter('thematic_widgetized_areas', 'childtheme_hide_areas');
+*/
+
+// cuts the default size of the search input field down to cut overlap
+// css sizes this fine, but it could be placed in things other than aside, this is back up. ;)
+function childtheme_thematic_search_form_length() {
+    return "16";
+}
+add_filter('thematic_search_form_length', 'childtheme_thematic_search_form_length');
+
+// change the default search box text
+function childtheme_search_field_value() {
+    return "Search";
+}
+add_filter('search_field_value', 'childtheme_search_field_value');
+
+
+
+
+function childtheme_social_icon_fonts() { ?>
+    <aside id="social" class="aside social">
+        <section>
+            <ul class="social-icons">
+              <li class="social-twitter"><a class="icon-twitter" href="http://twitter.com/usabilitydick" title="Twitter"><span>Twitter</span></a></li>
+              <li class="social-codepen"><a class="icon-codepen" href="http://codepen.io/scottnix" title="Codpen"><span>Codepen</span></a></li>
+              <li class="social-github"><a class="icon-github" href="https://github.com/scottnix" title="Github"><span>Github</span></a></li>
+              <li class="social-rss"><a class="icon-rss" href="http://feeds.feedburner.com/snix" title="RSS"><span>RSS</span></a></li>
+            </ul>
+        </section>
+    </aside>
+<?php }
+add_action('thematic_belowmainasides', 'childtheme_social_icon_fonts');
+
+
+// override functionality of Thematic HTML5 Plugin and Thematic
+// originally H1 on Thematic HTML5 Plugin, originally H3 on Themaitc, changed this to an H4 for fun.
+
+// filter the title opening of widget areas
+function childtheme_before_widgettitle( $content ) {
+    $content = "<h4 class=\"widgettitle\">";
+    return $content;
+}
+add_filter( 'thematic_before_title', 'childtheme_before_widgettitle', 11 );
+
+// filter the title closing of widget area
+function childtheme_after_widgettitle( $content ) {
+    $content = "</h4>\n";
+    return $content;
+}
+add_filter( 'thematic_after_title', 'childtheme_after_widgettitle', 11 );
+
+
+function childtheme_modify_excerpt($text) {
+   return str_replace('[...]', '.... <a href="'.get_permalink().'" class="more-link">Read More &raquo;</a>', $text);
+}
+add_filter('get_the_excerpt', 'childtheme_modify_excerpt');
+
+
+
