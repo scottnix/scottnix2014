@@ -9,50 +9,48 @@
 
 
 // units
-$emw--unit-alpha: .5em;
-$emw--unit-beta: $emw--unit-alpha*2;
-$emw--unit-gamma: $emw--unit-alpha*3;
-$emw--unit-delta: $emw--unit-alpha*4;
-
 $spacing-alpha: .5em;
 $spacing-beta: $spacing-alpha*2;
 $spacing-gamma: $spacing-alpha*3;
 $spacing-delta: $spacing-alpha*4;
 
-$background: #34495e;
-$background-secondary: darken($background, 10%);
-$background-secondary-accent: lighten($background-secondary, 5%);
+$spacing: $spacing-gamma;
+
 
 $header-font: "Helvetica Neue", Helvetica, Arial, sans-serif;
 $header-color: #ecf0f1;
-$header-link: #1ccdaa;
 
 $body-font: "Helvetica Neue", Helvetica, Arial, sans-serif;
+$body-background: #34495e;
 $body-color: #ecf0f1;
-$body-link: #1ccdaa;
-$body-hover: lighten($body-color, 30%);
-$body-focus: lighten($body-color, 30%);
+
+$link-color: #1ccdaa;
+$link-focus: lighten($link-color, 30%);
+$link-hover: lighten($link-color, 30%);
+
+
+$base-color: #34495e;
+$base-color-secondary: darken($base-color, 10%);
+$base-color-accent: lighten($base-color-secondary, 5%);
 
 $accent-color: #1ccdaa;
-$accent-link: #1ccdaa;
-$accent-hover: lighten($accent-color, 30%);
-$accent-focus: lighten($accent-color, 30%);
 $accent-color-secondary: darken($accent-color, 10%);
+$accent-color-accent: lighten($accent-color-secondary, 25%);
+
 
 $transparency-light: rgba(black, .02);
 $transparency-medium: rgba(black, .05);
 $transparency-dark: rgba(black, .1);
 
+
 $selection-background: #fe57a1; // html5boilerplate pink lives on!
 $selection-color: #f1f1f1;
 
-$spacing: $spacing-gamma; // default spacing
 
-$link-color: #1ccdaa;
-$link-focus: #1ccdaa;
-$link-hover: #1ccdaa;
 
-$body-background: #34495e;
+
+
+
 
 // css development classes (for testing)
 // ==========================================================================

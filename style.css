@@ -9,7 +9,7 @@ Version: 0.1.0
 Tags: thematic, child, responsive
 */
 /* ==========================================================================
-   basic styles
+   basic single element styles (headers, links, etc.)
    ========================================================================== */
 *,
 *:before,
@@ -26,7 +26,7 @@ html {
 
 body {
   margin: 0;
-  background: red;
+  background: #34495e;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 105%;
   color: #ecf0f1;
@@ -94,11 +94,11 @@ a:visited {
   color: #1ccdaa;
 }
 a:focus {
-  color: #1ccdaa;
+  color: #92f0dd;
   outline: thin dotted;
 }
 a:active, a:hover {
-  color: #1ccdaa;
+  color: #92f0dd;
   outline: 0;
 }
 
@@ -163,6 +163,10 @@ acronym {
   border-bottom: 1px dotted;
 }
 
+dfn {
+  font-style: italic;
+}
+
 ins {
   border-bottom: 1px solid #1ccdaa;
   text-decoration: none;
@@ -176,7 +180,7 @@ blockquote {
   margin: 0 0 1.5em;
 }
 blockquote p {
-  padding-left: 1em;
+  padding: 1em 0 1em 1em;
   border-left: 5px solid #1ccdaa;
 }
 
@@ -194,18 +198,19 @@ code,
 kbd,
 pre,
 samp {
-  font-family: monospace, serif;
+  font-family: monospace, monospace;
   font-size: 1em;
 }
 
 pre {
+  overflow: auto;
   margin: 0 0 1.5em;
   white-space: pre-wrap;
 }
 
 code {
   padding: 0 .2em;
-  background: #1ccdaa;
+  background: #2b3c4e;
 }
 
 small {
@@ -229,12 +234,8 @@ sub {
 }
 
 hr {
-  display: block;
-  height: 1px;
+  height: 0;
   margin: 0 0 1.5em;
-  border: 0;
-  background: #1ccdaa;
-  color: #1ccdaa;
 }
 
 table {
@@ -534,7 +535,7 @@ td {
     background-color: none;
   }
   .menu li a:hover {
-    background-color: #222f3d;
+    background-color: #2b3c4e;
   }
 }
 .entry-content pre {
@@ -557,7 +558,10 @@ td {
   overflow-x: scroll;
   display: block;
   padding: 0 1em;
-  background: #2f4154;
+  background: #293a4a;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#2b3c4e), to(transparent));
+  background-image: -webkit-linear-gradient(#2b3c4e 50%, transparent 50%);
+  background-image: linear-gradient(#2b3c4e 50%, transparent 50%);
   background-size: 100% 3em;
   background-position: 0 1.5em;
   background-origin: content-box;
@@ -618,34 +622,60 @@ td {
 }
 .aside ul ul li,
 .aside section ul li {
-  padding: .1em 0;
+  padding: 0.25em 0;
 }
 .aside ul ul ul,
 .aside section ul ul {
-  margin: 0 0 0 0.75em;
+  margin: 0 0 0 0.5em;
 }
 .aside img,
 .aside select {
+  height: auto;
   max-width: 100%;
 }
-.aside [id="search-form"] input {
+.aside [id="searchform"] input {
   width: 100%;
 }
-.aside [id="search-submit"] {
+.aside [id="searchsubmit"] {
   display: none;
 }
 
-[id="content"] .aside {
+.site-content .aside {
   margin: 0 0 1.5em;
 }
 
 .widgettitle {
-  padding: .5em 0;
-  border-bottom: 1px solid #1ccdaa;
+  padding: 0.5em 0;
+  border-bottom: 5px solid #2b3c4e;
 }
 
-[id="primary"] {
-  margin-bottom: 1.5em;
+#social {
+  margin: 0;
+}
+
+.social-icons {
+  margin: 0 !important;
+  padding: 0;
+}
+.social-icons li {
+  float: left;
+  width: 25%;
+}
+.social-icons li a {
+  font-size: 2em;
+  text-decoration: none;
+}
+.social-icons li a:hover {
+  background: none;
+  color: #4fe7c9;
+}
+@media (min-width: 50em) {
+  .social-icons li a:hover {
+    font-size: 2.5em;
+  }
+}
+.social-icons span {
+  display: none;
 }
 
 /* images
@@ -671,13 +701,13 @@ td {
 .alignleft,
 img.alignleft {
   float: left;
-  margin-right: 0.75em;
+  margin-right: 1em;
 }
 
 .alignright,
 img.alignright {
   float: right;
-  margin-left: 0.75em;
+  margin-left: 1em;
 }
 
 .aligncenter,
@@ -700,7 +730,7 @@ img.aligncenter {
 
 .wp-caption-text {
   margin: 0;
-  padding: 0 0.75em 1.5em;
+  padding: 0 1em 1.5em;
   font-size: 90%;
 }
 
@@ -743,9 +773,9 @@ img.aligncenter {
 /* navigational elements and buttons
    ========================================================================== */
 fieldset {
-  border: 1px solid #1ccdaa;
-  margin: 0 .5em;
-  padding: .5em;
+  border: 0.25em solid #1ccdaa;
+  margin: 0 0.5em;
+  padding: 0.5em;
 }
 
 legend {
@@ -856,7 +886,21 @@ input[type="submit"] {
 .button:hover,
 button:hover,
 input[type="submit"]:hover {
-  background: #34495e;
+  background: #2b3c4e;
+}
+
+.demo {
+  position: relative;
+  display: inline-block;
+  overflow: visible;
+  width: 100%;
+  padding: 0.5em;
+  background: #222f3d;
+  color: #1ccdaa;
+  cursor: pointer;
+}
+.demo:hover {
+  background: #2b3c4e;
 }
 
 #nav-below {
@@ -882,7 +926,7 @@ input[type="submit"]:hover {
 @media (min-width: 80em) {
   .nav-previous a,
   .nav-next a {
-    -webkit-transition-property: margin, 0.5s, ease-in-out;
+    -webkit-transition-property: margin 0.5s ease-in-out;
     transition-property: margin 0.5s ease-in-out;
     position: fixed;
     top: 45%;
@@ -997,7 +1041,7 @@ input[type="submit"]:hover {
 }
 @media (min-width: 30em) {
   .comments .children {
-    border-left: 5px solid #222f3d;
+    border-left: 0.25em solid #1ccdaa;
   }
 }
 .comments .children .children {
@@ -1008,7 +1052,7 @@ input[type="submit"]:hover {
 .avatar {
   float: left;
   margin: 0 0.75em 0.75em 0;
-  border: 5px solid #222f3d;
+  border: 0.25em solid #1ccdaa;
 }
 
 .comment-author {
@@ -1101,7 +1145,7 @@ input[type="submit"]:hover {
 }
 [id="author-info"] .avatar {
   float: left;
-  margin: 0 0.75em 0;
+  margin: 0 1em 0;
 }
 
 .error404 input[type="submit"] {
@@ -1133,6 +1177,7 @@ audio,
 canvas,
 video {
   display: inline-block;
+  vertical-align: baseline;
 }
 
 .lt-ie9 [id="wrapper"] {
@@ -1160,7 +1205,7 @@ video {
 
 /* plugins
    ========================================================================== */
-.pings .comment-content {
+.comment-notes, .pings .comment-content {
   border: 0;
   clip: rect(0 0 0 0);
   height: 1px;
@@ -1171,7 +1216,8 @@ video {
   width: 1px;
 }
 
-.pings .focusable.comment-content:active,
+.focusable.comment-notes:active, .pings .focusable.comment-content:active,
+.focusable.comment-notes:focus,
 .pings .focusable.comment-content:focus {
   clip: auto;
   height: auto;
@@ -1190,10 +1236,6 @@ video {
 
 .comments:after, .comment-respond:after {
   clear: both;
-}
-
-.comments, .comment-respond {
-  *zoom: 1;
 }
 
 /* ==========================================================================
@@ -1245,9 +1287,6 @@ video {
     max-width: 100% !important;
   }
 
-  @page {
-    margin: 0.5cm;
-  }
   p,
   h2,
   .site-title,

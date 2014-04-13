@@ -14,10 +14,10 @@ $susy: (
     @include show-grid(); // set susy grid overlay
   //  @include box-sizing(content-box); // doesn't add the padding to container width
     margin: 0 auto;
-    padding: 0 $emw--unit-beta;
+    padding: 0 $spacing-beta;
 }
 .site-header {
-    margin: $emw--unit-delta 0;
+    margin: $spacing-delta 0;
 
     @include breakpoint(large) {
         @include span(last 4);
@@ -28,7 +28,7 @@ $susy: (
 
 }
 .content-wrapper {
-    margin: $emw--unit-delta 0;
+    margin: $spacing-delta 0;
 
 	@include breakpoint(large) {
 	    @include span(8);
@@ -36,7 +36,7 @@ $susy: (
 	}
 }
 .hentry {
-    padding: 0 0 $emw--unit-delta;
+    padding: 0 0 $spacing-delta;
 }
 .primary-aside,
 .secondary-aside,
@@ -70,7 +70,7 @@ $susy: (
 .content-wrapper,
 .site-footer,
 [id="subsidiary"] {
-    margin-bottom: $emw--unit-delta;
+    margin-bottom: $spacing-delta;
 }
 
 // page templates

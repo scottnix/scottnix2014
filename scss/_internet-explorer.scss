@@ -18,6 +18,7 @@ audio,
 canvas,
 video {
     display: inline-block;
+    vertical-align: baseline;
 }
 
 // less than IE 9 (6,7,8)

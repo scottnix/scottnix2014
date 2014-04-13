@@ -2,7 +2,6 @@
     background-color: transparent;
     border: 0;
     overflow: hidden;
-    *text-indent: -9999px;
 }
 %ir:before {
     content: "";
@@ -43,7 +42,4 @@
 }
 %clearfix:after {
     clear: both;
-}
-%clearfix {
-    *zoom: 1;
 }

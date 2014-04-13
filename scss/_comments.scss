@@ -22,13 +22,16 @@
     .children {
 
         @include breakpoint(medium) {
-              border-left: 5px solid $background-secondary;
+              border-left: $spacing-alpha/2 solid $accent-color;
         }
     }
     .children .children {
         border: none;
         padding: 0;
     }
+}
+.comment-notes {
+    @extend %visuallyhidden;
 }
 .comment {
 }
@@ -37,7 +40,7 @@
 .avatar {
     float: left;
     margin: 0 $spacing/2 $spacing/2 0;
-    border: 5px solid $background-secondary;
+    border: $spacing-alpha/2 solid $accent-color;
 }
 .comment-author {
     font-weight: bold;

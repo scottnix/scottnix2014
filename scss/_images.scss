@@ -7,7 +7,7 @@
         height: auto;
         max-width: 100%;
         margin: 0 0 $spacing;
-        border: 5px solid $background-secondary;
+        border: 5px solid $base-color-secondary;
     }
 
     @include breakpoint(medium) {
@@ -21,12 +21,12 @@
 .alignleft,
 img.alignleft {
     float: left;
-    margin-right: $spacing/2;
+    margin-right: $spacing-beta;
 }
 .alignright,
 img.alignright {
     float: right;
-    margin-left: $spacing/2;
+    margin-left: $spacing-beta;
 }
 .aligncenter,
 img.aligncenter {
@@ -46,7 +46,7 @@ img.aligncenter {
 }
 .wp-caption-text {
     margin: 0;
-    padding: 0 $spacing/2 $spacing;
+    padding: 0 $spacing-beta $spacing;
     font-size: 90%;
 }
 .gallery {
@@ -70,7 +70,7 @@ img.aligncenter {
     img {
         height: auto;
         margin: 0 auto;
-        border: 5px solid $background-secondary !important;
+        border: 5px solid $base-color-secondary !important;
     }
 }
 .gallery-icon {

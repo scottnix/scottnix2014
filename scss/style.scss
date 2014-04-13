@@ -16,225 +16,10 @@ Tags: thematic, child, responsive
 @import 'base';
 
 /* ==========================================================================
-   basic styles
+   basic single element styles (headers, links, etc.)
    ========================================================================== */
 
-*,
-*:before,
-*:after {
-    box-sizing: border-box;
-}
-html {
-    -ms-text-size-adjust: 100%;
-    -webkit-text-size-adjust: 100%;
-}
-body {
-    margin: 0;
-    background: red;
-    font-family: $body-font;
-    font-size: 105%;
-    color: $body-color;
-    line-height: 1.625;
-
-    @include breakpoint(medium) {
-        font-size: 112.5%;
-    }
-    @include breakpoint(large) {
-        font-size: 125%;
-    }
-}
-h1 {
-    margin: 0 0 0.5417em;
-    font-family: $header-font;
-    font-size: 2.25em;
-    line-height: 1.0833em;
-}
-h2 {
-    margin: 0 0 0.7222em;
-    font-family: $header-font;
-    font-size: 1.875em;
-    line-height: 1.4444em;
-}
-h3 {
-    margin: 0 0 0.8667em;
-    font-family: $header-font;
-    font-size: 1.5em;
-    line-height: 1.7333em;
-}
-h4 {
-    margin: 0 0 1.0833em;
-    font-family: $header-font;
-    font-size: 1.375em;
-    line-height: 1.0833em;
-}
-h5 {
-    margin: 0 0 1.1818em;
-    font-family: $header-font;
-    font-size: 1.125em;
-    line-height: 1.1818em;
-}
-h6 {
-    margin: 0 0 1.4444em;
-    font-family: $header-font;
-    font-size: 1em;
-    line-height: 1.4444em;
-}
-a {
-    background: transparent;
-    text-decoration: none;
-    color: $link-color;
-    &:visited {
-        color: $link-color;
-    }
-    &:focus {
-        color: $link-focus;
-        outline: thin dotted;
-    }
-    &:active,
-    &:hover {
-        color: $link-hover;
-        outline: 0;
-    }
-}
-img {
-    border: 0;
-}
-p,
-address,
-figure,
-embed,
-.video-container {
-    margin: 0 0 $spacing;
-}
-ul {
-    margin: 0 0 $spacing;
-    list-style: disc;
-}
-ol {
-    margin: 0 0 $spacing;
-    list-style-type: decimal;
-    ol {
-        list-style: upper-alpha;
-        ol {
-            list-style: lower-roman;
-            ol {
-                list-style: lower-alpha;
-            }
-        }
-    }
-}
-ul ul,
-ul ol,
-ol ul,
-ol ol {
-    margin-bottom: 0;
-}
-dl {
-    margin: 0 1em;
-}
-dt {
-    font-weight: bold;
-}
-dd {
-    margin: 0 0 $spacing;
-}
-b,
-strong {
-    font-weight: bold;
-}
-abbr[title],
-acronym {
-    cursor: help;
-    border-bottom: 1px dotted;
-}
-ins {
-    border-bottom: 1px solid $accent-color;
-    text-decoration: none;
-}
-caption {
-    text-align: center;
-}
-blockquote {
-    margin: 0 0 $spacing;
-    p {
-        padding-left: 1em;
-        border-left: 5px solid $accent-color;
-    }
-}
-q {
-    quotes: "\201C" "\201D" "\2018" "\2019";
-    &:before {
-        content: open-quote;
-    }
-    &:after {
-        content: close-quote;
-    }
-}
-code,
-kbd,
-pre,
-samp {
-    font-family: monospace, serif;
-    font-size: 1em;
-}
-pre {
-    margin: 0 0 $spacing;
-    white-space: pre-wrap;
-}
-code {
-    padding: 0 .2em;
-    background: $accent-color;
-}
-small {
-    font-size: 80%;
-}
-sub,
-sup {
-    font-size: 75%;
-    line-height: 0;
-    position: relative;
-    vertical-align: baseline;
-}
-sup {
-    top: -0.5em;
-}
-sub {
-    bottom: -0.25em;
-}
-hr {
-    display: block;
-    height: 1px;
-    margin: 0 0 $spacing;
-    border: 0;
-    background: $accent-color;
-    color: $accent-color;
-}
-table {
-    margin: 0 0 $spacing;
-    border: 1px solid $accent-color;
-    border-width: 1px 1px 0;
-    border-collapse: collapse;
-    border-spacing: 0;
-    text-align: left;
-}
-tr {
-    border-bottom: 1px solid $accent-color;
-}
-th,
-td {
-    padding: .7em 1.25em;
-    vertical-align: top;
-}
-::-moz-selection {
-    background: $selection-background;
-    color: $selection-color;
-    text-shadow: none;
-}
-::selection {
-    background: $selection-background;
-    color: $selection-color;
-    text-shadow: none;
-}
+@import 'elements';
 
 /* ==========================================================================
    theme fonts
@@ -315,7 +100,7 @@ td {
         background-color: none;
 
         &:hover {
-            background-color: $background-secondary;
+            background-color: $base-color-accent;
         }
     }
 }
@@ -346,8 +131,8 @@ td {
           overflow-x: scroll;
           display: block;
           padding: 0 1em;
-          background: darken($background, 3%);
-          // background linear gradient
+          background: darken($base-color-accent, 1%);
+          background-image: linear-gradient($base-color-accent 50%, rgba(0, 0, 0, 0) 50%);
           background-size: 100% 3em;
           background-position: 0 1.5em;
           background-origin: content-box;
@@ -394,43 +179,61 @@ td {
         margin: 0 0 $spacing;
         ul {
             li {
-                padding: .1em 0;
+                padding: $spacing-alpha/2 0;
             }
             ul {
-                margin: 0 0 0 $spacing/2;
+                margin: 0 0 0 $spacing-alpha;
             }
         }
     }
     img,
     select {
+        height: auto;
         max-width: 100%;
     }
-    [id="search-form"] input {
+    [id="searchform"] input {
         width: 100%;
     }
-    [id="search-submit"] {
+    [id="searchsubmit"] {
         display: none;
     }
 }
-[id="content"] .aside {
+.site-content .aside {
     margin: 0 0 $spacing;
 }
 .widgettitle {
     @extend h4;
-    padding:.5em 0;
-    border-bottom: 1px solid $accent-color;
+    padding: $spacing-alpha 0;
+    border-bottom: 5px solid $base-color-accent;
 }
-[id="primary"] {
-    margin-bottom: $spacing;
+
+#social {
+    margin: 0;
+    @include breakpoint(large) {
+
+    }
 }
-[id="secondary"] {}
-[id="footer"] {}
-[id="subsidiary"] {}
-[id="first"] {}
-[id="secondary"] {}
-[id="third"] {}
-[id="footer-widget"] {}
-[id="siteinfo"] {}
+// social icons
+.social-icons {
+    margin: 0 !important; // shit, fix this stupid important....
+    padding: 0;
+    li {
+        float: left;
+        width: 25%;
+        a {
+            font-size: 2em;
+            text-decoration: none;
+            &:hover {
+                background: none;
+                color: $accent-color-accent;
+                @include breakpoint(large) {
+                    font-size: 2.5em;
+                }
+            }
+        }
+    }
+    span { display: none; }
+}
 
 /* images
    ========================================================================== */
@@ -462,7 +265,7 @@ td {
 
 @import 'plugins';
 
-// helper classes - html5boilerplate.com (setup as SASS placeholders)
+// helper classes - html5boilerplate.com (setup as Sass placeholders)
 // ==========================================================================
 
 @import 'helper-classes';

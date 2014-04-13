@@ -1,7 +1,7 @@
 fieldset {
-    border: 1px solid $accent-color;
-    margin: 0 .5em;
-    padding: .5em;
+    border: $spacing-alpha/2 solid $accent-color;
+    margin: 0 $spacing-alpha;
+    padding: $spacing-alpha;
 }
 legend {
     border: 0;
@@ -23,7 +23,7 @@ input,
 textarea {
     padding: $spacing-alpha;
     border: none;
-    background: $background-secondary;
+    background: $base-color-secondary;
     font-family: $body-font;
     color: $body-color;
     outline: none;
@@ -86,15 +86,27 @@ input[type="submit"] {
     overflow: visible;
     padding: $spacing-alpha;
     border: none;
-    background: $background-secondary;
+    background: $base-color-secondary;
     color: $accent-color;
     cursor: pointer;
     text-align: center;
     &:hover {
-        background: lighten($background-secondary-accent, 5%);
+        background: $base-color-accent;
     }
 }
-
+.demo {
+    position: relative;
+    display: inline-block;
+    overflow: visible;
+    width: 100%;
+    padding: $spacing-alpha;
+    background: $base-color-secondary;
+    color: $accent-color;
+    cursor: pointer;
+    &:hover {
+        background: $base-color-accent;
+    }
+}
 #nav-below {
   margin: 0 0 1.625em;
   overflow: hidden;
@@ -116,9 +128,6 @@ input[type="submit"] {
 @media (min-width: 80em) {
   .nav-previous a,
   .nav-next a {
-    -webkit-transition-property: margin, 0.5s, ease-in-out;
-    -moz-transition-property: margin, 0.5s, ease-in-out;
-    -o-transition-property: margin, 0.5s, ease-in-out;
     transition-property: margin 0.5s ease-in-out;
     position: fixed;
     top: 45%;
@@ -129,7 +138,7 @@ input[type="submit"] {
     vertical-align: middle;
     border: 5px solid #e0e7e8;
 
-    -webkit-transform: translateZ(0);
+    -webkit-transform: translateZ(0); // fixes repaint on scroll
   }
   .nav-previous a:after, .nav-previous a:before,
   .nav-next a:after,
@@ -218,7 +227,7 @@ input[type="submit"] {
     font-weight: bold;
     a {
         padding: 0.4em 0.65em;
-        background: $background-secondary;
+        background: $base-color-secondary;
     }
     a,
     span {
