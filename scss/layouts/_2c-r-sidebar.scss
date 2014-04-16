@@ -48,7 +48,8 @@ $susy: (
     }
 }
 .site-footer {
-
+    @include span(full);
+    @include break;
 }
 [id="subsidiary"] {
     @include break;

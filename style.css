@@ -417,6 +417,17 @@ td {
   }
 }
 
+.site-footer {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  width: 100%;
+  float: left;
+  padding-left: 0.83333%;
+  padding-right: 0.83333%;
+  clear: both;
+}
+
 [id="subsidiary"] {
   clear: both;
   overflow: hidden;
