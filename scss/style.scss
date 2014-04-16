@@ -38,7 +38,8 @@ Tags: thematic, child, responsive
    ========================================================================== */
 
 .branding {
-    margin: 0 0 $spacing;
+    float: left;
+    margin-bottom: $spacing-alpha;
 }
 .site-title {
     @extend h2;
@@ -52,95 +53,45 @@ Tags: thematic, child, responsive
     font-weight: normal;
     line-height: $spacing;
     text-shadow: none;
+    @extend %visuallyhidden;
 }
-
-// Brad Frost Mobile Patterns - Skip Nav
-// http://codepen.io/bradfrost/pen/vljdx
-.menu-toggle {
-    float: right;
-    padding: 1em;
-}
-.menu,
-.menu > ul ul {
-    clear: both;
-    // transition for dropdown
-}
-.js .menu,
-.js .menu > ul ul {
-    overflow: hidden;
-    max-height: 0;
-}
-.menu.active,
-.js .menu > ul ul.active {
-    max-height: 55em;
-}
-.menu ul {
-    padding: 0;
-    margin: 0;
-    list-style: none;
-}
-.menu li a {
-    display: block;
-    padding: .2em;
-    position: relative;
-}
-
-@include breakpoint(large) {
-    .menu-toggle {
-       display: none;
-    }
-    .js .menu {
-        overflow: hidden;
-        max-height: none;
-    }
-    .menu li {
-
-    }
-    .menu li a {
-        background-color: none;
-
-        &:hover {
-            background-color: $base-color-accent;
-        }
-    }
-}
-
 .page-title {
     @extend h6;
 }
 .entry-title {
     @extend h1;
+    color: $accent-color;
 }
 .entry-content {
     pre {
-      position: relative;
-      white-space: pre;
-      word-wrap: normal;
-      font-size: 90%;
-      &:before {
-          position: absolute;
-          top: 0;
-          right: 0;
-          padding-right: .5em;
-          opacity: 1;
-          color: $accent-color;
-          cursor: default;
-          font-size: 1em;
-        }
-        code {
-          overflow-x: scroll;
-          display: block;
-          padding: 0 1em;
-          background: darken($base-color-accent, 1%);
-          background-image: linear-gradient($base-color-accent 50%, rgba(0, 0, 0, 0) 50%);
-          background-size: 100% 3em;
-          background-position: 0 1.5em;
-          background-origin: content-box;
-          color: $body-color;
-          line-height: 1.5;
-          font-size: 1em;
-        }
+        position: relative;
+        white-space: pre;
+        word-wrap: normal;
+        font-size: 80%;
+        &:before {
+        position: absolute;
+        top: 0;
+        right: 0;
+        padding-right: .5em;
+        opacity: 1;
+        color: $accent-color;
+        cursor: default;
+        font-size: 1em;
     }
+    code {
+        overflow-x: scroll;
+        display: block;
+        padding: 0 1em;
+        background: darken($body-color, 2%);
+        background-image: linear-gradient($body-color 50%, rgba(0, 0, 0, 0) 50%);
+        background-size: 100% 3em;
+        background-position: 0 1.5em;
+        background-origin: content-box;
+        color: $base-color;
+        line-height: 1.5;
+        font-size: 1em;
+    }
+}
     .css:before { content: "CSS";  }
     .html:before { content: "HTML"; }
     .javascript:before { content: "JavaScript"; }
@@ -204,7 +155,7 @@ Tags: thematic, child, responsive
 .widgettitle {
     @extend h4;
     padding: $spacing-alpha 0;
-    border-bottom: 5px solid $base-color-accent;
+    border-bottom: 5px solid $base-color-secondary;
 }
 
 #social {

@@ -20,7 +20,7 @@ $spacing: $spacing-gamma;
 $header-font: "Helvetica Neue", Helvetica, Arial, sans-serif;
 $header-color: #ecf0f1;
 
-$body-font: "Helvetica Neue", Helvetica, Arial, sans-serif;
+$body-font: Georgia, Times, "Times New Roman", serif;
 $body-background: #34495e;
 $body-color: #ecf0f1;
 
@@ -30,12 +30,12 @@ $link-hover: lighten($link-color, 30%);
 
 
 $base-color: #34495e;
-$base-color-secondary: darken($base-color, 10%);
-$base-color-accent: lighten($base-color-secondary, 5%);
+$base-color-secondary: darken($base-color, 5%);
+$base-color-accent: lighten($base-color-secondary, 2%);
 
 $accent-color: #1ccdaa;
 $accent-color-secondary: darken($accent-color, 10%);
-$accent-color-accent: lighten($accent-color-secondary, 25%);
+$accent-color-accent: lighten($accent-color, 25%);
 
 
 $transparency-light: rgba(black, .02);

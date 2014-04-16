@@ -19,7 +19,7 @@ body {
         font-size: 112.5%;
     }
     @include breakpoint(large) {
-        font-size: 125%;
+        font-size: 120%;
     }
 }
 h1 {
@@ -62,6 +62,7 @@ a {
     background: transparent;
     text-decoration: none;
     color: $link-color;
+    transition: all .5s ease-in-out;
     &:visited {
         color: $link-color;
     }
@@ -166,7 +167,7 @@ pre {
 }
 code {
     padding: 0 .2em;
-    background: $base-color-accent;
+    background: $base-color-secondary;
 }
 small {
     font-size: 80%;

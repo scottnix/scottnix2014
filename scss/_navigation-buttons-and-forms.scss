@@ -1,3 +1,89 @@
+// Brad Frost Mobile Patterns - Skip Nav (nimus dropdwons)
+// http://codepen.io/bradfrost/pen/vljdx
+.menu-toggle {
+    position: relative;
+    float: right;
+    padding: $spacing-alpha $spacing-delta $spacing-alpha $spacing-alpha;
+    &:before,
+    &:after {
+        content: "";
+        box-sizing: content-box;
+        overflow: hidden;
+        position: absolute;
+        top: .5em;
+        right: .4em;
+        width: 1.1em;
+        height: 1.2em;
+        margin-top: $spacing-alpha/1.9;
+        box-shadow:
+            inset 0 3px $accent-color,
+            inset 0 7px $base-color-secondary,
+            inset 0 10px $accent-color,
+            inset 0 14px $base-color-secondary,
+            inset 0 17px $accent-color;
+        transition: all 1s ease-in-out;
+    }
+}
+.toggled {
+    &:before,
+    &:after {
+        top: .85em;
+        right: .6em;
+        width: .8em;
+        height: .5em;
+        box-shadow:
+            inset 0 3px $accent-color;
+        transform: rotate(360deg);
+    }
+    &:after {
+        transform: rotate(-360deg);
+    }
+}
+.menu,
+.menu > ul ul {
+    clear: both;
+    transition: all 1s ease-in-out;
+}
+.js .menu,
+.js .menu > ul ul {
+    overflow: hidden;
+    max-height: 0;
+}
+.menu.active,
+.js .menu > ul ul.active {
+    max-height: 55em;
+}
+.menu ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+.menu li a {
+    display: block;
+    padding: $spacing-alpha;
+    position: relative;
+    background-color: $base-color-secondary;
+}
+
+@include breakpoint(large) {
+    .menu-toggle {
+       display: none;
+    }
+    .js .menu {
+        overflow: hidden;
+        max-height: none;
+    }
+    .menu li {
+
+    }
+    .menu li a {
+        background-color: transparent;
+
+        &:hover {
+            background-color: $base-color-accent;
+        }
+    }
+}
 fieldset {
     border: $spacing-alpha/2 solid $accent-color;
     margin: 0 $spacing-alpha;
@@ -90,6 +176,7 @@ input[type="submit"] {
     color: $accent-color;
     cursor: pointer;
     text-align: center;
+    transition: all .5s ease-in-out;
     &:hover {
         background: $base-color-accent;
     }
@@ -103,121 +190,211 @@ input[type="submit"] {
     background: $base-color-secondary;
     color: $accent-color;
     cursor: pointer;
+    transition: all .5s ease-in-out;
     &:hover {
         background: $base-color-accent;
     }
 }
-#nav-below {
-  margin: 0 0 1.625em;
-  overflow: hidden;
-  clear: both;
+.navigation {
+    margin: 0 0 $spacing;
+    overflow: hidden;
+    clear: both;
+    .meta-nav {
+        font-style: normal;
+    }
+    .nav-previous,
+    .nav-next {
+        width: 50%;
+    }
+    .nav-previous {
+        float: left;
+    }
+    .nav-next {
+        float: right;
+        text-align: right;
+    }
 }
-#nav-below .meta-nav {
-  font-style: normal;
-}
-@media (min-width: 30em) {
-  #nav-below .nav-previous {
-    float: left;
-  }
-  #nav-below .nav-next {
-    float: right;
-    text-align: right;
-  }
-}
+.nav-previous a,
+.nav-next a {
+    display: block;
+    padding: $spacing-alpha;
+    background: $base-color-secondary;
+    &:after, &:before {
+        font: 1.5em 'entypo';
+        speak: none;
+        font-style: normal;
+        font-weight: normal;
+        font-variant: normal;
+        text-transform: none;
+        line-height: 1;
+        -webkit-font-smoothing: antialiased;
+    }
+    @include breakpoint(80em) {
+        position: fixed;
+        top: 45%;
+     //   color: $accent-color;
+        padding: $spacing-alpha;
+        vertical-align: middle;
 
-@media (min-width: 80em) {
-  .nav-previous a,
-  .nav-next a {
-    transition-property: margin 0.5s ease-in-out;
-    position: fixed;
-    top: 45%;
-    width: 10em;
-    background: #dc6d61;
-    color: white;
-    padding: .5em;
-    vertical-align: middle;
-    border: 5px solid #e0e7e8;
+        transform: translatez(0);
+        &:hover {
+            background: $base-color-secondary;
+            transition: all .5s ease-in-out;
+        }
 
-    -webkit-transform: translateZ(0); // fixes repaint on scroll
-  }
-  .nav-previous a:after, .nav-previous a:before,
-  .nav-next a:after,
-  .nav-next a:before {
-    font: 1.5em 'entypo';
-  }
+        span {
+            display: none;
+        }
+    }
 }
+.nav-previous a {
 
-@media (min-width: 80em) {
-  .nav-previous a {
-    left: 0;
-    margin-left: -7.5em;
-    text-align: right;
-    vertical-align: middle;
-    float: left;
-    border-left: none;
-    border-color: white;
-  }
-  .nav-previous a:hover {
-    margin-left: 0;
-  }
-  .nav-previous a:after {
-    content: "\e007";
-    padding-left: .5em;
-    vertical-align: -.25em;
-  }
-}
-@media (min-width: 110em) {
-  .nav-previous a {
-    margin-left: 0;
-  }
-}
+    &:before {
+        content: "\e007";
+        vertical-align: -.15em;
+    }
+    @include breakpoint(80em) {
+        left: 0;
+        width: 10em;
+        margin-left: -7.5em;
+        text-align: right;
+        float: left;
+        &:hover {
+            margin-left: 0;
+            border-left: none;
+        }
+        &:before {
+            content: "";
+        }
+        &:after {
+            content: "\e007";
+            padding-left: .5em;
+            vertical-align: -.25em;
+        }
 
-@media (min-width: 80em) {
-  .nav-next a {
-    right: 0;
-    margin-right: -7.5em;
-    text-align: left;
-    vertical-align: middle;
-    float: right;
-    border-right: none;
-  }
-  .nav-next a:hover {
-    margin-right: 0;
-  }
-  .nav-next a:before {
-    content: "\e006";
-    padding-right: .5em;
-    vertical-align: -.25em;
-  }
+    }
+    @include breakpoint(105em) {
+        margin-left: 0;
+    }
 }
-@media (min-width: 110em) {
-  .nav-next a {
-    margin-right: 0;
-  }
+.nav-next a {
+
+    &:after {
+        content: "\e006";
+        vertical-align: -.15em;
+    }
+    @include breakpoint(80em) {
+        right: 0;
+        width: 10em;
+        margin-right: -7.5em;
+        text-align: left;
+        float: right;
+        &:hover {
+            margin-right: 0;
+        }
+        &:before {
+            content: "\e006";
+            padding-right: .5em;
+            vertical-align: -.25em;
+        }
+        &:after {
+            content: "";
+        }
+    }
+    @include breakpoint(105em) {
+        margin-right: 0;
+    }
 }
+/* preserved before totally reworking
+.navigation {
+    margin: 0 0 $spacing;
+    overflow: hidden;
+    clear: both;
+    .meta-nav {
+        font-style: normal;
+    }
 
-// .navigation {
-//     @extend %clearfix;
-//     margin: 0 0 $spacing;
-//     .nav-previous,
-//     .nav-next {
-//         @extend .button;
-//         width: 50%;
-
-//         @include breakpoint(medium) {
-//             width: auto;
-//         }
-//     }
-//     .nav-previous {
-//         float: left;
-//         text-align: left;
-//     }
-//     .nav-next {
-//         float: right;
-//         text-align: right;
-//     }
-//     .meta-nav {}
-// }
+    @include breakpoint(medium) {
+        .nav-previous {
+            float: left;
+        }
+        .nav-next {
+            float: right;
+            text-align: right;
+        }
+    }
+}
+.nav-previous a,
+.nav-next a {
+    @include breakpoint(80em) {
+        position: fixed;
+        top: 45%;
+        background: $base-color-secondary;
+        color: $accent-color;
+        padding: .5em;
+        vertical-align: middle;
+        transition: all .5s ease-in-out;
+        transform: translatez(0);
+        &:hover {
+            background: $base-color-secondary;
+        }
+        &:after, &:before {
+            font: 1.5em 'entypo';
+            speak: none;
+            font-style: normal;
+            font-weight: normal;
+            font-variant: normal;
+            text-transform: none;
+            line-height: 1;
+            -webkit-font-smoothing: antialiased;
+        }
+        span {
+            display: none;
+        }
+    }
+}
+.nav-previous a {
+    @include breakpoint(80em) {
+        left: 0;
+        width: 10em;
+        margin-left: -7.5em;
+        text-align: right;
+        float: left;
+        &:hover {
+            margin-left: 0;
+            border-left: none;
+        }
+        &:after {
+            content: "\e007";
+            padding-left: .5em;
+            vertical-align: -.25em;
+        }
+    }
+    @include breakpoint(100em) {
+        margin-left: 0;
+    }
+}
+.nav-next a {
+    @include breakpoint(80em) {
+        right: 0;
+        width: 10em;
+        margin-right: -7.5em;
+        text-align: left;
+        float: right;
+        &:hover {
+            margin-right: 0;
+        }
+        &:before {
+            content: "\e006";
+            padding-right: .5em;
+            vertical-align: -.25em;
+        }
+    }
+    @include breakpoint(100em) {
+        margin-right: 0;
+    }
+}
+*/
 .more-link {}
 .edit-link {}
 .page-link,
