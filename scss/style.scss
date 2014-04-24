@@ -89,6 +89,7 @@ Tags: thematic, child, responsive
         background-origin: content-box;
         color: $base-color;
         line-height: 1.5em;
+        line-height: 1.5;
         font-size: 1em;
     }
 }
@@ -187,6 +188,19 @@ Tags: thematic, child, responsive
     span {
         display: none;
     }
+        a {
+            font-size: 2em;
+            text-decoration: none;
+            &:hover {
+                background: none;
+                color: $accent-color-accent;
+                @include breakpoint(large) {
+                    font-size: 2.5em;
+                }
+            }
+        }
+    }
+    span { display: none; }
 }
 
 /* images
