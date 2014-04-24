@@ -89,19 +89,19 @@ h6, .page-title {
 a {
   background: transparent;
   text-decoration: none;
-  color: #1ccdaa;
+  color: #26e1bc;
   -webkit-transition: all .5s ease-in-out;
   transition: all .5s ease-in-out;
 }
 a:visited {
-  color: #1ccdaa;
+  color: #26e1bc;
 }
 a:focus {
-  color: #92f0dd;
+  color: #adf4e6;
   outline: thin dotted;
 }
 a:active, a:hover {
-  color: #92f0dd;
+  color: #adf4e6;
   outline: 0;
 }
 
@@ -171,7 +171,7 @@ dfn {
 }
 
 ins {
-  border-bottom: 1px solid #1ccdaa;
+  border-bottom: 1px solid #26e1bc;
   text-decoration: none;
 }
 
@@ -184,7 +184,7 @@ blockquote {
 }
 blockquote p {
   padding: 1em 0 1em 1em;
-  border-left: 5px solid #1ccdaa;
+  border-left: 5px solid #26e1bc;
 }
 
 q {
@@ -243,7 +243,7 @@ hr {
 
 table {
   margin: 0 0 1.5em;
-  border: 1px solid #1ccdaa;
+  border: 1px solid #26e1bc;
   border-width: 1px 1px 0;
   border-collapse: collapse;
   border-spacing: 0;
@@ -251,7 +251,7 @@ table {
 }
 
 tr {
-  border-bottom: 1px solid #1ccdaa;
+  border-bottom: 1px solid #26e1bc;
 }
 
 th,
@@ -504,7 +504,7 @@ td {
 }
 
 .entry-title {
-  color: #1ccdaa;
+  color: #26e1bc;
 }
 
 .entry-content pre {
@@ -519,7 +519,7 @@ td {
   right: 0;
   padding-right: .5em;
   opacity: 1;
-  color: #1ccdaa;
+  color: #26e1bc;
   cursor: default;
   font-size: 1em;
 }
@@ -561,7 +561,7 @@ td {
 }
 
 .entry-utility {
-  color: #1ccdaa;
+  color: #26e1bc;
 }
 .entry-utility ul {
   margin: 0;
@@ -571,7 +571,7 @@ td {
   list-style: none;
 }
 .entry-utility a {
-  border-bottom: 1px dotted #1ccdaa;
+  border-bottom: 1px dotted #26e1bc;
 }
 .entry-utility [class*="icon-"]:before {
   padding-right: 1em;
@@ -618,12 +618,12 @@ td {
   border-bottom: 5px solid #2b3c4e;
 }
 
-#social {
+.social ul,
+.social section {
   margin: 0;
 }
 
 .social-icons {
-  margin: 0 !important;
   padding: 0;
 }
 .social-icons li {
@@ -637,7 +637,7 @@ td {
 }
 .social-icons a:hover {
   background: none;
-  color: #7bedd7;
+  color: #96f1df;
 }
 @media (min-width: 50em) {
   .social-icons a:hover {
@@ -759,8 +759,8 @@ img.aligncenter {
   width: 1.1em;
   height: 1.2em;
   margin-top: 0.26316em;
-  -webkit-box-shadow: inset 0 3px #1ccdaa, inset 0 7px #2b3c4e, inset 0 10px #1ccdaa, inset 0 14px #2b3c4e, inset 0 17px #1ccdaa;
-  box-shadow: inset 0 3px #1ccdaa, inset 0 7px #2b3c4e, inset 0 10px #1ccdaa, inset 0 14px #2b3c4e, inset 0 17px #1ccdaa;
+  -webkit-box-shadow: inset 0 3px #26e1bc, inset 0 7px #2b3c4e, inset 0 10px #26e1bc, inset 0 14px #2b3c4e, inset 0 17px #26e1bc;
+  box-shadow: inset 0 3px #26e1bc, inset 0 7px #2b3c4e, inset 0 10px #26e1bc, inset 0 14px #2b3c4e, inset 0 17px #26e1bc;
   -webkit-transition: all 1s ease-in-out;
   transition: all 1s ease-in-out;
 }
@@ -770,8 +770,8 @@ img.aligncenter {
   right: .6em;
   width: .8em;
   height: .5em;
-  -webkit-box-shadow: inset 0 3px #1ccdaa;
-  box-shadow: inset 0 3px #1ccdaa;
+  -webkit-box-shadow: inset 0 3px #26e1bc;
+  box-shadow: inset 0 3px #26e1bc;
   -webkit-transform: rotate(360deg);
   -ms-transform: rotate(360deg);
   transform: rotate(360deg);
@@ -832,7 +832,7 @@ img.aligncenter {
   }
 }
 fieldset {
-  border: 0.25em solid #1ccdaa;
+  border: 0.25em solid #26e1bc;
   margin: 0 0.5em;
   padding: 0.5em;
 }
@@ -868,8 +868,8 @@ textarea {
 }
 input:focus,
 textarea:focus {
-  -webkit-box-shadow: 0 0 2px 2px #1ccdaa;
-  box-shadow: 0 0 2px 2px #1ccdaa;
+  -webkit-box-shadow: 0 0 2px 2px #26e1bc;
+  box-shadow: 0 0 2px 2px #26e1bc;
 }
 
 button,
@@ -938,7 +938,7 @@ input[type="submit"] {
   padding: 0.5em;
   border: none;
   background: #2b3c4e;
-  color: #1ccdaa;
+  color: #26e1bc;
   cursor: pointer;
   text-align: center;
   -webkit-transition: all .5s ease-in-out;
@@ -957,7 +957,7 @@ input[type="submit"]:hover {
   width: 100%;
   padding: 0.5em;
   background: #2b3c4e;
-  color: #1ccdaa;
+  color: #26e1bc;
   cursor: pointer;
   -webkit-transition: all .5s ease-in-out;
   transition: all .5s ease-in-out;
@@ -1261,7 +1261,7 @@ input[type="submit"]:hover {
   }
 }
 .comment-content a {
-  border-bottom: 1px dotted #1ccdaa;
+  border-bottom: 1px dotted #26e1bc;
 }
 
 .comment-reply-link {
@@ -1397,8 +1397,8 @@ video {
   margin-top: -1em;
   margin-bottom: 1.5em;
   padding: 1em;
-  border: 1px solid #1ccdaa;
-  color: #7bedd7;
+  border: 1px solid #26e1bc;
+  color: #96f1df;
 }
 .wpcf7 .ajax-loader {
   display: none;
