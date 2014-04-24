@@ -26,6 +26,7 @@ html {
 
 body {
   margin: 0;
+  overflow-y: scroll;
   background: #34495e;
   font-family: Georgia, Times, "Times New Roman", serif;
   font-size: 105%;
@@ -534,6 +535,7 @@ td {
   background-position: 0 1.5em;
   background-origin: content-box;
   color: #34495e;
+  line-height: 1.5em;
   line-height: 1.5;
   font-size: 1em;
 }
@@ -628,17 +630,18 @@ td {
 .social-icons li {
   float: left;
   width: 25%;
+  text-align: center;
 }
-.social-icons li a {
+.social-icons a {
   font-size: 2em;
   text-decoration: none;
 }
-.social-icons li a:hover {
+.social-icons a:hover {
   background: none;
   color: #7bedd7;
 }
 @media (min-width: 50em) {
-  .social-icons li a:hover {
+  .social-icons a:hover {
     font-size: 2.5em;
   }
 }
