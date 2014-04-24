@@ -1,0 +1,19 @@
+.wpcf7 {
+	[role="alert"] {
+		display: block;
+		margin-top: -$spacing-beta;
+		margin-bottom: $spacing;
+		padding: $spacing-beta;
+		border: 1px solid $accent-color;
+		color: $accent-color-accent;
+	}
+	.ajax-loader {
+		display: none;
+	}
+	.screen-reader-response {
+		@extend %visuallyhidden;
+	}
+	.wpcf7-response-output {
+		margin: $spacing 0;
+	}
+}
