@@ -536,7 +536,6 @@ td {
   background-origin: content-box;
   color: #34495e;
   line-height: 1.5em;
-  line-height: 1.5;
   font-size: 1em;
 }
 .entry-content .css:before {
@@ -807,6 +806,10 @@ img.aligncenter {
   list-style: none;
 }
 
+.menu li {
+  border-bottom: 1px solid #34495e;
+}
+
 .menu li a {
   display: block;
   padding: 0.5em;
@@ -824,9 +827,6 @@ img.aligncenter {
     max-height: none;
   }
 
-  .menu li a {
-    background-color: transparent;
-  }
   .menu li a:hover {
     background-color: #2f4154;
   }
@@ -1392,7 +1392,22 @@ video {
 
 /* plugins
    ========================================================================== */
-.tagline, .comment-notes, .pings .comment-content {
+.wpcf7 [role="alert"] {
+  display: block;
+  margin-top: -1em;
+  margin-bottom: 1.5em;
+  padding: 1em;
+  border: 1px solid #1ccdaa;
+  color: #7bedd7;
+}
+.wpcf7 .ajax-loader {
+  display: none;
+}
+.wpcf7 .wpcf7-response-output {
+  margin: 1.5em 0;
+}
+
+.tagline, .comment-notes, .pings .comment-content, .wpcf7 .screen-reader-response {
   border: 0;
   clip: rect(0 0 0 0);
   height: 1px;
@@ -1403,10 +1418,11 @@ video {
   width: 1px;
 }
 
-.focusable.tagline:active, .focusable.comment-notes:active, .pings .focusable.comment-content:active,
+.focusable.tagline:active, .focusable.comment-notes:active, .pings .focusable.comment-content:active, .wpcf7 .focusable.screen-reader-response:active,
 .focusable.tagline:focus,
 .focusable.comment-notes:focus,
-.pings .focusable.comment-content:focus {
+.pings .focusable.comment-content:focus,
+.wpcf7 .focusable.screen-reader-response:focus {
   clip: auto;
   height: auto;
   margin: 0;
