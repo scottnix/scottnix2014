@@ -1,0 +1,78 @@
+// import compass - compass-style.org/reference/compass/
+// import susy - susy.oddbird.net/
+// ==========================================================================
+
+ @import 'susy';
+
+// sass variables - http://sass-lang.com/docs/yardoc/file.SASS_REFERENCE.html#variables_
+// ==========================================================================
+
+
+// units
+$spacing-alpha: .5em;
+$spacing-beta: $spacing-alpha*2;
+$spacing-gamma: $spacing-alpha*3;
+$spacing-delta: $spacing-alpha*4;
+
+$spacing: $spacing-gamma;
+
+
+$header-font: "Helvetica Neue", Helvetica, Arial, sans-serif;
+$header-color: #ecf0f1;
+
+$body-font: Georgia, Times, "Times New Roman", serif;
+$body-background: #34495e;
+$body-color: #ecf0f1;
+
+$link-color: #1ccdaa;
+$link-focus: lighten($link-color, 30%);
+$link-hover: lighten($link-color, 30%);
+
+
+$base-color: #34495e;
+$base-color-secondary: darken($base-color, 5%);
+$base-color-accent: lighten($base-color-secondary, 2%);
+
+$accent-color: #1ccdaa;
+$accent-color-secondary: darken($accent-color, 10%);
+$accent-color-accent: lighten($accent-color, 25%);
+
+
+$transparency-light: rgba(black, .02);
+$transparency-medium: rgba(black, .05);
+$transparency-dark: rgba(black, .1);
+
+
+$selection-background: #fe57a1; // html5boilerplate pink lives on!
+$selection-color: #f1f1f1;
+
+
+
+
+
+
+
+// css development classes (for testing)
+// ==========================================================================
+
+// div { background: rgba(black, .05) !important; } // highlight divs
+// header, article, main, section, aside, footer { background: rgba(black, .05) !important; }
+// ul { background: rgba(black, .05) !important; } // highlight unordered lists
+// li { background: rgba(black, .05) !important; } // highlight list items
+// p { background: rgba(black, .05) !important; } // highlight paragraphs
+
+// sass mixins - sass-lang.com/docs/yardoc/file.SASS_REFERENCE.html#mixins
+// ==========================================================================
+
+// media query breakpoint mixin - scottnix.com/placement-of-media-queries/
+@mixin breakpoint($point) {
+    @if $point == medium {
+        @media (min-width: 30em)  { @content; }
+    }
+    @else if $point == large {
+        @media (min-width: 50em) { @content; }
+    }
+    @else if $point { // allows custom breakpoints
+        @media (min-width: $point) { @content; }
+    }
+}

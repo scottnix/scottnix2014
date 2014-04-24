@@ -1,0 +1,100 @@
+// Susy Grids - Global Default http://susydocs.oddbird.net/en/latest/settings/
+
+$susy: (
+  columns: 12,
+  gutters: 1/4,
+  math: fluid,
+  output: float,
+  gutter-position: inside,
+  global-box-sizing: content-box,
+);
+
+.site-wrapper {
+    @include container(60em); // set susy grid container
+    @include show-grid(); // set susy grid overlay
+  //  @include box-sizing(content-box); // doesn't add the padding to container width
+    margin: 0 auto;
+    padding: 0 $spacing-beta;
+}
+.site-header {
+    margin: $spacing-delta 0;
+
+    @include breakpoint(large) {
+        @include span(last 4);
+    }
+
+}
+.site-main {
+
+}
+.content-wrapper {
+    margin: $spacing-delta 0;
+
+	@include breakpoint(large) {
+	    @include span(8);
+        @include suffix(1);
+	}
+}
+.hentry {
+    padding: 0 0 $spacing-delta;
+}
+.primary-aside,
+.secondary-aside,
+.social {
+
+    @include breakpoint(large) {
+        @include span(last 4);
+        clear: right;
+    }
+}
+.site-footer {
+    @include span(full);
+    @include break;
+}
+[id="subsidiary"] {
+    @include break;
+    overflow: hidden;
+}
+.first-sub-aside,
+.second-sub-aside,
+.third-sub-aside {
+
+    @include breakpoint(large) {
+        @include span(4);
+    }
+}
+
+// grouping common layout specific properties identified above
+
+
+
+.content-wrapper,
+.site-footer,
+[id="subsidiary"] {
+    margin-bottom: $spacing-delta;
+}
+
+// page templates
+// ==========================================================================
+
+// fullwidth template overrides
+.page-template-template-page-fullwidth-php {
+    [id="container"] {
+
+        @include breakpoint(large) {
+            @include span(full);
+        }
+    }
+}
+
+// attachments template overrides
+.single-attachment {
+    [id="container"] {
+        @include span(full);
+    }
+    [id="primary"],
+    [id="secondary"],
+    [id="respond"] {
+        display: none;
+    }
+}

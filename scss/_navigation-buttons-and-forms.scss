@@ -1,0 +1,416 @@
+// Brad Frost Mobile Patterns - Skip Nav (nimus dropdwons)
+// http://codepen.io/bradfrost/pen/vljdx
+.menu-toggle {
+    position: relative;
+    float: right;
+    padding: $spacing-alpha $spacing-delta $spacing-alpha $spacing-alpha;
+    &:before,
+    &:after {
+        content: "";
+        box-sizing: content-box;
+        overflow: hidden;
+        position: absolute;
+        top: .5em;
+        right: .4em;
+        width: 1.1em;
+        height: 1.2em;
+        margin-top: $spacing-alpha/1.9;
+        box-shadow:
+            inset 0 3px $accent-color,
+            inset 0 7px $base-color-secondary,
+            inset 0 10px $accent-color,
+            inset 0 14px $base-color-secondary,
+            inset 0 17px $accent-color;
+        transition: all 1s ease-in-out;
+    }
+}
+.toggled {
+    &:before,
+    &:after {
+        top: .85em;
+        right: .6em;
+        width: .8em;
+        height: .5em;
+        box-shadow:
+            inset 0 3px $accent-color;
+        transform: rotate(360deg);
+    }
+    &:after {
+        transform: rotate(-360deg);
+    }
+}
+.menu,
+.menu > ul ul {
+    clear: both;
+    transition: all 1s ease-in-out;
+}
+.js .menu,
+.js .menu > ul ul {
+    overflow: hidden;
+    max-height: 0;
+}
+.menu.active,
+.js .menu > ul ul.active {
+    max-height: 55em;
+}
+.menu ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+.menu li a {
+    display: block;
+    padding: $spacing-alpha;
+    position: relative;
+    background-color: $base-color-secondary;
+}
+
+@include breakpoint(large) {
+    .menu-toggle {
+       display: none;
+    }
+    .js .menu {
+        overflow: hidden;
+        max-height: none;
+    }
+    .menu li {
+
+    }
+    .menu li a {
+        background-color: transparent;
+
+        &:hover {
+            background-color: $base-color-accent;
+        }
+    }
+}
+fieldset {
+    border: $spacing-alpha/2 solid $accent-color;
+    margin: 0 $spacing-alpha;
+    padding: $spacing-alpha;
+}
+legend {
+    border: 0;
+    padding: 0;
+}
+form,
+select {
+    margin-bottom: $spacing-gamma;
+}
+input {
+    line-height: normal;
+}
+textarea {
+    resize: vertical;
+    overflow: auto;
+    vertical-align: top;
+}
+input,
+textarea {
+    padding: $spacing-alpha;
+    border: none;
+    background: $base-color-secondary;
+    font-family: $body-font;
+    color: $body-color;
+    outline: none;
+    &:focus {
+        box-shadow: 0 0 2px 2px $accent-color;
+    }
+}
+button,
+input,
+optgroup,
+select,
+textarea {
+    font: inherit;
+    color: inherit;
+    margin: 0;
+}
+optgroup {
+    font-weight: bold;
+}
+button,
+select {
+    text-transform: none;
+}
+button,
+html input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+    -webkit-appearance: button;
+    cursor: pointer;
+}
+button[disabled],
+html input[disabled] {
+    cursor: default;
+}
+input[type="checkbox"],
+input[type="radio"] {
+    padding: 0;
+}
+input[type="search"] {
+    -webkit-appearance: textfield;
+}
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-decoration {
+    -webkit-appearance: none;
+}
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    height: auto;
+}
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+    border: 0;
+    padding: 0;
+}
+.button,
+button,
+input[type="submit"] {
+    position: relative;
+    display: inline-block;
+    overflow: visible;
+    padding: $spacing-alpha;
+    border: none;
+    background: $base-color-secondary;
+    color: $accent-color;
+    cursor: pointer;
+    text-align: center;
+    transition: all .5s ease-in-out;
+    &:hover {
+        background: $base-color-accent;
+    }
+}
+.demo {
+    position: relative;
+    display: inline-block;
+    overflow: visible;
+    width: 100%;
+    padding: $spacing-alpha;
+    background: $base-color-secondary;
+    color: $accent-color;
+    cursor: pointer;
+    transition: all .5s ease-in-out;
+    &:hover {
+        background: $base-color-accent;
+    }
+}
+.navigation {
+    margin: 0 0 $spacing;
+    overflow: hidden;
+    clear: both;
+    .meta-nav {
+        font-style: normal;
+    }
+    .nav-previous,
+    .nav-next {
+        width: 50%;
+    }
+    .nav-previous {
+        float: left;
+    }
+    .nav-next {
+        float: right;
+        text-align: right;
+    }
+}
+.nav-previous a,
+.nav-next a {
+    display: block;
+    padding: $spacing-alpha;
+    background: $base-color-secondary;
+    &:after, &:before {
+        font: 1.5em 'entypo';
+        speak: none;
+        font-style: normal;
+        font-weight: normal;
+        font-variant: normal;
+        text-transform: none;
+        line-height: 1;
+        -webkit-font-smoothing: antialiased;
+    }
+    @include breakpoint(80em) {
+        position: fixed;
+        top: 45%;
+     //   color: $accent-color;
+        padding: $spacing-alpha;
+        vertical-align: middle;
+
+        transform: translatez(0);
+        &:hover {
+            background: $base-color-secondary;
+            transition: all .5s ease-in-out;
+        }
+
+        span {
+            display: none;
+        }
+    }
+}
+.nav-previous a {
+
+    &:before {
+        content: "\e007";
+        vertical-align: -.15em;
+    }
+    @include breakpoint(80em) {
+        left: 0;
+        width: 10em;
+        margin-left: -7.5em;
+        text-align: right;
+        float: left;
+        &:hover {
+            margin-left: 0;
+            border-left: none;
+        }
+        &:before {
+            content: "";
+        }
+        &:after {
+            content: "\e007";
+            padding-left: .5em;
+            vertical-align: -.25em;
+        }
+
+    }
+    @include breakpoint(105em) {
+        margin-left: 0;
+    }
+}
+.nav-next a {
+
+    &:after {
+        content: "\e006";
+        vertical-align: -.15em;
+    }
+    @include breakpoint(80em) {
+        right: 0;
+        width: 10em;
+        margin-right: -7.5em;
+        text-align: left;
+        float: right;
+        &:hover {
+            margin-right: 0;
+        }
+        &:before {
+            content: "\e006";
+            padding-right: .5em;
+            vertical-align: -.25em;
+        }
+        &:after {
+            content: "";
+        }
+    }
+    @include breakpoint(105em) {
+        margin-right: 0;
+    }
+}
+/* preserved before totally reworking
+.navigation {
+    margin: 0 0 $spacing;
+    overflow: hidden;
+    clear: both;
+    .meta-nav {
+        font-style: normal;
+    }
+
+    @include breakpoint(medium) {
+        .nav-previous {
+            float: left;
+        }
+        .nav-next {
+            float: right;
+            text-align: right;
+        }
+    }
+}
+.nav-previous a,
+.nav-next a {
+    @include breakpoint(80em) {
+        position: fixed;
+        top: 45%;
+        background: $base-color-secondary;
+        color: $accent-color;
+        padding: .5em;
+        vertical-align: middle;
+        transition: all .5s ease-in-out;
+        transform: translatez(0);
+        &:hover {
+            background: $base-color-secondary;
+        }
+        &:after, &:before {
+            font: 1.5em 'entypo';
+            speak: none;
+            font-style: normal;
+            font-weight: normal;
+            font-variant: normal;
+            text-transform: none;
+            line-height: 1;
+            -webkit-font-smoothing: antialiased;
+        }
+        span {
+            display: none;
+        }
+    }
+}
+.nav-previous a {
+    @include breakpoint(80em) {
+        left: 0;
+        width: 10em;
+        margin-left: -7.5em;
+        text-align: right;
+        float: left;
+        &:hover {
+            margin-left: 0;
+            border-left: none;
+        }
+        &:after {
+            content: "\e007";
+            padding-left: .5em;
+            vertical-align: -.25em;
+        }
+    }
+    @include breakpoint(100em) {
+        margin-left: 0;
+    }
+}
+.nav-next a {
+    @include breakpoint(80em) {
+        right: 0;
+        width: 10em;
+        margin-right: -7.5em;
+        text-align: left;
+        float: right;
+        &:hover {
+            margin-right: 0;
+        }
+        &:before {
+            content: "\e006";
+            padding-right: .5em;
+            vertical-align: -.25em;
+        }
+    }
+    @include breakpoint(100em) {
+        margin-right: 0;
+    }
+}
+*/
+.more-link {}
+.edit-link {}
+.page-link,
+.comment-navigation {
+    margin: $spacing 0;
+    clear: both;
+    font-weight: bold;
+    a {
+        padding: 0.4em 0.65em;
+        background: $base-color-secondary;
+    }
+    a,
+    span {
+        margin-right: 0.5em;
+    }
+}
+.paginated-comments-links {
+    margin-top: $spacing;
+}

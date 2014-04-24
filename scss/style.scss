@@ -1,0 +1,237 @@
+/*!
+Theme Name: ScottNix 2014 for Thematic
+Theme URI: http://scottnix.com/
+Description: Test version of new theme for Thematic 2.0, created from an update to previous themes.
+Author: Scott Nix
+Author URI: http://scottnix.com/
+Template: thematic
+Version: 0.1.0
+Tags: thematic, child, responsive
+*/
+
+// ==========================================================================
+// load supporting files (compass, variables, mixins)
+// ==========================================================================
+
+@import 'base';
+
+/* ==========================================================================
+   basic single element styles (headers, links, etc.)
+   ========================================================================== */
+
+@import 'elements';
+
+/* ==========================================================================
+   theme fonts
+   ========================================================================== */
+
+@import 'fonts';
+
+/* ==========================================================================
+   layout structure
+   ========================================================================== */
+
+ @import 'layouts/2c-r-sidebar';
+
+/* ==========================================================================
+   content styles
+   ========================================================================== */
+
+.branding {
+    float: left;
+    margin-bottom: $spacing-alpha;
+}
+.site-title {
+    @extend h2;
+    margin: 0;
+    padding: 0;
+}
+.tagline {
+    margin: 0;
+    font-family: $body-font;
+    font-size: 100%;
+    font-weight: normal;
+    line-height: $spacing;
+    text-shadow: none;
+    @extend %visuallyhidden;
+}
+.page-title {
+    @extend h6;
+}
+.entry-title {
+    @extend h1;
+    color: $accent-color;
+}
+.entry-content {
+    pre {
+        position: relative;
+        white-space: pre;
+        word-wrap: normal;
+        font-size: 80%;
+        &:before {
+        position: absolute;
+        top: 0;
+        right: 0;
+        padding-right: .5em;
+        opacity: 1;
+        color: $accent-color;
+        cursor: default;
+        font-size: 1em;
+    }
+    code {
+        overflow-x: scroll;
+        display: block;
+        padding: 0 1em;
+        background: darken($body-color, 2%);
+        background-image: linear-gradient($body-color 50%, rgba(0, 0, 0, 0) 50%);
+        background-size: 100% 3em;
+        background-position: 0 1.5em;
+        background-origin: content-box;
+        color: $base-color;
+        line-height: 1.5;
+        font-size: 1em;
+    }
+}
+    .css:before { content: "CSS";  }
+    .html:before { content: "HTML"; }
+    .javascript:before { content: "JavaScript"; }
+    .jquery:before { content: "jQuery"; }
+    .php:before { content: "PHP"; }
+    .scss:before { content: "SCSS"; }
+    .sublime-snippet:before { content: "Sublime Snippet"; }
+}
+.entry-utility {
+    color: $accent-color;
+    ul {
+        margin: 0;
+        padding: 0;
+    }
+    li {
+        list-style: none;
+    }
+    a {
+        border-bottom: 1px dotted $accent-color;
+    }
+    [class*="icon-"]:before {
+        padding-right: 1em;
+    }
+}
+
+/* asides, sidebars & widget-ready areas
+   ========================================================================== */
+
+.aside {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    ul,
+    section {
+        list-style: none;
+        padding: 0;
+        margin: 0 0 $spacing;
+        ul {
+            li {
+                padding: $spacing-alpha/2 0;
+            }
+            ul {
+                margin: 0 0 0 $spacing-alpha;
+            }
+        }
+    }
+    img,
+    select {
+        height: auto;
+        max-width: 100%;
+    }
+    [id="searchform"] input {
+        width: 100%;
+    }
+    [id="searchsubmit"] {
+        display: none;
+    }
+}
+.site-content .aside {
+    margin: 0 0 $spacing;
+}
+.widgettitle {
+    @extend h4;
+    padding: $spacing-alpha 0;
+    border-bottom: 5px solid $base-color-secondary;
+}
+
+#social {
+    margin: 0;
+    @include breakpoint(large) {
+
+    }
+}
+// social icons
+.social-icons {
+    margin: 0 !important; // shit, fix this stupid important....
+    padding: 0;
+    li {
+        float: left;
+        width: 25%;
+        a {
+            font-size: 2em;
+            text-decoration: none;
+            &:hover {
+                background: none;
+                color: $accent-color-accent;
+                @include breakpoint(large) {
+                    font-size: 2.5em;
+                }
+            }
+        }
+    }
+    span { display: none; }
+}
+
+/* images
+   ========================================================================== */
+
+@import 'images';
+
+/* navigational elements and buttons
+   ========================================================================== */
+
+@import 'navigation-buttons-and-forms';
+
+/* comments
+   ========================================================================== */
+
+@import 'comments';
+
+/* specific pages and templates
+   ========================================================================== */
+
+@import 'pages-and-templates';
+
+/* internet explorer (old IE, 6, 7 and 8 fixes)
+   ========================================================================== */
+
+@import 'internet-explorer';
+
+/* plugins
+   ========================================================================== */
+
+@import 'plugins';
+
+// helper classes - html5boilerplate.com (setup as Sass placeholders)
+// ==========================================================================
+
+@import 'helper-classes';
+
+/* ==========================================================================
+   print styles - html5boilerplate.com
+   ========================================================================== */
+
+@media print {
+    @import 'print-styles';
+
+    // custom additions
+    [id="access"],
+    .aside,
+    .navigation {
+        display: none;
+    }
+}
