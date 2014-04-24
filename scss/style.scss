@@ -88,8 +88,7 @@ Tags: thematic, child, responsive
         background-position: 0 1.5em;
         background-origin: content-box;
         color: $base-color;
-        line-height: 1.5em;
-        line-height: 1.5;
+        line-height: 1.5em; // match background position
         font-size: 1em;
     }
 }
