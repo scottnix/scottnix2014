@@ -58,6 +58,9 @@
     margin: 0;
     list-style: none;
 }
+.menu li {
+    border-bottom: 1px solid $base-color;
+}
 .menu li a {
     display: block;
     padding: $spacing-alpha;
@@ -74,10 +77,10 @@
         max-height: none;
     }
     .menu li {
-
+    //    border-bottom: 1px solid $base-color;
     }
     .menu li a {
-        background-color: transparent;
+      //  background-color: transparent;
 
         &:hover {
             background-color: $base-color-accent;
