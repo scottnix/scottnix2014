@@ -157,16 +157,12 @@ Tags: thematic, child, responsive
     padding: $spacing-alpha 0;
     border-bottom: 5px solid $base-color-secondary;
 }
-
-#social {
+.social ul,
+.social section {
     margin: 0;
-    @include breakpoint(large) {
-
-    }
 }
-// social icons
 .social-icons {
-    margin: 0 !important; // shit, fix this stupid important....
+   // margin: 0 !important; // shit, fix this stupid important....
     padding: 0;
     li {
         float: left;
