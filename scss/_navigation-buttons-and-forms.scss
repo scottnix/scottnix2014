@@ -17,9 +17,9 @@
         margin-top: $spacing-alpha/1.9;
         box-shadow:
             inset 0 3px $accent-color,
-            inset 0 7px $base-color-secondary,
+            inset 0 7px $body-background,
             inset 0 10px $accent-color,
-            inset 0 14px $base-color-secondary,
+            inset 0 14px $body-background,
             inset 0 17px $accent-color;
         transition: all 1s ease-in-out;
     }
@@ -53,21 +53,22 @@
 .js .menu > ul ul.active {
     max-height: 55em;
 }
-.menu ul {
-    padding: 0;
-    margin: 0;
-    list-style: none;
+.menu {
+    ul {
+        padding: 0;
+        margin: 0;
+        list-style: none;
+    }
+    li {
+        border-bottom: 1px solid $base-color;
+    }
+    li a {
+        display: block;
+        padding: $spacing-alpha;
+        position: relative;
+        background-color: $base-color-secondary;
+    }
 }
-.menu li {
-    border-bottom: 1px solid $base-color;
-}
-.menu li a {
-    display: block;
-    padding: $spacing-alpha;
-    position: relative;
-    background-color: $base-color-secondary;
-}
-
 @include breakpoint(large) {
     .menu-toggle {
        display: none;
@@ -76,12 +77,7 @@
         overflow: hidden;
         max-height: none;
     }
-    .menu li {
-    //    border-bottom: 1px solid $base-color;
-    }
     .menu li a {
-      //  background-color: transparent;
-
         &:hover {
             background-color: $base-color-accent;
         }
@@ -222,7 +218,8 @@ input[type="submit"] {
     display: block;
     padding: $spacing-alpha;
     background: $base-color-secondary;
-    &:after, &:before {
+    &:after,
+    &:before {
         font: 1.5em 'entypo';
         speak: none;
         font-style: normal;
@@ -235,23 +232,19 @@ input[type="submit"] {
     @include breakpoint(80em) {
         position: fixed;
         top: 45%;
-     //   color: $accent-color;
         padding: $spacing-alpha;
         vertical-align: middle;
-
         transform: translatez(0);
         &:hover {
             background: $base-color-secondary;
             transition: all .5s ease-in-out;
         }
-
         span {
             display: none;
         }
     }
 }
 .nav-previous a {
-
     &:before {
         content: "\e007";
         vertical-align: -.15em;
@@ -274,14 +267,12 @@ input[type="submit"] {
             padding-left: .5em;
             vertical-align: -.25em;
         }
-
     }
     @include breakpoint(105em) {
         margin-left: 0;
     }
 }
 .nav-next a {
-
     &:after {
         content: "\e006";
         vertical-align: -.15em;
@@ -308,96 +299,6 @@ input[type="submit"] {
         margin-right: 0;
     }
 }
-/* preserved before totally reworking
-.navigation {
-    margin: 0 0 $spacing;
-    overflow: hidden;
-    clear: both;
-    .meta-nav {
-        font-style: normal;
-    }
-
-    @include breakpoint(medium) {
-        .nav-previous {
-            float: left;
-        }
-        .nav-next {
-            float: right;
-            text-align: right;
-        }
-    }
-}
-.nav-previous a,
-.nav-next a {
-    @include breakpoint(80em) {
-        position: fixed;
-        top: 45%;
-        background: $base-color-secondary;
-        color: $accent-color;
-        padding: .5em;
-        vertical-align: middle;
-        transition: all .5s ease-in-out;
-        transform: translatez(0);
-        &:hover {
-            background: $base-color-secondary;
-        }
-        &:after, &:before {
-            font: 1.5em 'entypo';
-            speak: none;
-            font-style: normal;
-            font-weight: normal;
-            font-variant: normal;
-            text-transform: none;
-            line-height: 1;
-            -webkit-font-smoothing: antialiased;
-        }
-        span {
-            display: none;
-        }
-    }
-}
-.nav-previous a {
-    @include breakpoint(80em) {
-        left: 0;
-        width: 10em;
-        margin-left: -7.5em;
-        text-align: right;
-        float: left;
-        &:hover {
-            margin-left: 0;
-            border-left: none;
-        }
-        &:after {
-            content: "\e007";
-            padding-left: .5em;
-            vertical-align: -.25em;
-        }
-    }
-    @include breakpoint(100em) {
-        margin-left: 0;
-    }
-}
-.nav-next a {
-    @include breakpoint(80em) {
-        right: 0;
-        width: 10em;
-        margin-right: -7.5em;
-        text-align: left;
-        float: right;
-        &:hover {
-            margin-right: 0;
-        }
-        &:before {
-            content: "\e006";
-            padding-right: .5em;
-            vertical-align: -.25em;
-        }
-    }
-    @include breakpoint(100em) {
-        margin-right: 0;
-    }
-}
-*/
 .more-link {}
 .edit-link {}
 .page-link,
