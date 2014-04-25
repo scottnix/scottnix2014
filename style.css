@@ -8,6 +8,17 @@ Template: thematic
 Version: 0.1.0
 Tags: thematic, child, responsive
 */
+/*!
+  ________                __           ____              __                __   _
+ /_  __/ /_  ____ _____  / /_______   / __/___  _____   / /   ____  ____  / /__(_)___  ____ _
+  / / / __ \/ __ `/ __ \/ //_/ ___/  / /_/ __ \/ ___/  / /   / __ \/ __ \/ //_/ / __ \/ __ `/
+ / / / / / / /_/ / / / / ,< (__  )  / __/ /_/ / /     / /___/ /_/ / /_/ / ,< / / / / / /_/ /
+/_/ /_/ /_/\__,_/_/ /_/_/|_/____/  /_/  \____/_/     /_____/\____/\____/_/|_/_/_/ /_/\__, /
+                                                                                    /____/
+
+I do not concat and minify files on this site to help others learn.
+This child theme is provided on Github for free at https://github.com/scottnix/scottnix2014
+*/
 /* ==========================================================================
    basic single element styles (headers, links, etc.)
    ========================================================================== */
