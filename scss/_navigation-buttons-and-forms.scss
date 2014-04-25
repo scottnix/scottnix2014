@@ -180,7 +180,8 @@ input[type="submit"] {
         background: $base-color-accent;
     }
 }
-.demo {
+.demo,
+.download {
     position: relative;
     display: inline-block;
     overflow: visible;
