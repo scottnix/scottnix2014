@@ -1,22 +1,22 @@
 ScottNix, a child theme for the Thematic Theme Framework
 ===============
 
-A child theme for Thematic 2.0, this is a WIP, there is no design yet, just updating everything to current standards in anticipation for the release of Thematic 2.0. This will eventually power my website and also be available for download.
+A child theme for Thematic 2.0, this is a constant WIP (Work in Progress). This theme was built to get everything to current standards for the release of Thematic 2.0. This now powers my website and also be available for download.
 
 
 Todo
 -------------
 
-* Update Susy grids to latest standards, drop old syntax.
-* Incorporate Tim's Emwaw (http://emwaw.me/) to detach some of the styling/naming issues that are present from creating themes meant to be modified.
-* Create a new design, will be somewhat similar to old design, possibly even more simple.
-* Spend way too much time picking a friggin color scheme.
- * Incorporate Autoprefixer, couldn't get it running in Compass, but eventually need to swap from using Compass to vendor prefix things to Autoprefixer which is much more robust at keeping with current prefixes.
+* Clean CSS Files, need to really pick through the CSS to find unused/duplicate stuff that is laying around. I pieced this theme together with a couple previous themes, so there is likely to be really minor duplicate, or uneccessary CSS.
+* Clean PHP Files, still need to comment and organize the functions.php file
+* There are a couple things I will change, and what looks like a couple bugs in Thematic 2.0, or if not bugs something is different and I need to find the time to really look.
+* Docs
+* Strip this theme to nothing and replace the Responsive Base theme, a starter theme for Thematic.
 
 Demo
 -------------
 
-http://scottnix.com/ - not up yet
+http://scottnix.com/ (I am currently using this theme)
 
 More Info
 -------------
