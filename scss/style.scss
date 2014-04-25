@@ -57,6 +57,9 @@ Tags: thematic, child, responsive
 }
 .page-title {
     @extend h6;
+    .category-posts & {
+        display: none;
+    }
 }
 .entry-title {
     @extend h1;
