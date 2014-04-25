@@ -194,6 +194,9 @@ input[type="submit"] {
     &:hover {
         background: $base-color-accent;
     }
+    &:before {
+        padding-right: $spacing-beta;
+    }
 }
 .navigation {
     margin: 0 0 $spacing;
@@ -221,7 +224,7 @@ input[type="submit"] {
     background: $base-color-secondary;
     &:after,
     &:before {
-        font: 1.5em 'entypo';
+        font: 1.5em 'icomoon';
         speak: none;
         font-style: normal;
         font-weight: normal;
