@@ -287,9 +287,9 @@ td {
    theme fonts
    ========================================================================== */
 @font-face {
-  font-family: 'entypo';
-  src: url("fonts/entypo.eot");
-  src: url("fonts/entypo.eot?#iefix") format("embedded-opentype"), url("fonts/entypo.woff") format("woff"), url("fonts/entypo.ttf") format("truetype"), url("fonts/entypo.svg#entypo") format("svg");
+  font-family: 'icomoon';
+  src: url("fonts/icomoon.eot");
+  src: url("fonts/icomoon.eot#iefix") format("embedded-opentype"), url("fonts/icomoon.woff") format("woff"), url("fonts/icomoon.ttf") format("truetype"), url("fonts/icomoon.svg#icomoon") format("svg");
   font-weight: normal;
   font-style: normal;
 }
@@ -304,8 +304,10 @@ td {
 .icon-folder:before,
 .icon-comment:before,
 .icon-mail:before,
-.icon-codepen:before {
-  font-family: 'entypo';
+.icon-codepen:before,
+.demo:before,
+.download:before {
+  font-family: 'icomoon';
   speak: none;
   font-style: normal;
   font-weight: normal;
@@ -313,6 +315,7 @@ td {
   text-transform: none;
   line-height: 1;
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 .icon-twitter:before {
@@ -361,6 +364,14 @@ td {
 
 .icon-mail:before {
   content: "\e00e";
+}
+
+.demo:before {
+  content: "\e00f";
+}
+
+.download:before {
+  content: "\e600";
 }
 
 /* ==========================================================================
@@ -976,6 +987,10 @@ input[type="submit"]:hover {
 .download:hover {
   background: #2f4154;
 }
+.demo:before,
+.download:before {
+  padding-right: 1em;
+}
 
 .navigation {
   margin: 0 0 1.5em;
@@ -1006,7 +1021,7 @@ input[type="submit"]:hover {
 .nav-previous a:after, .nav-previous a:before,
 .nav-next a:after,
 .nav-next a:before {
-  font: 1.5em 'entypo';
+  font: 1.5em 'icomoon';
   speak: none;
   font-style: normal;
   font-weight: normal;
