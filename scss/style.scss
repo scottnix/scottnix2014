@@ -69,29 +69,29 @@ Tags: thematic, child, responsive
         word-wrap: normal;
         font-size: 80%;
         &:before {
-        position: absolute;
-        top: 0;
-        right: 0;
-        padding-right: .5em;
-        opacity: 1;
-        color: $accent-color;
-        cursor: default;
-        font-size: 1em;
+            position: absolute;
+            top: 0;
+            right: 0;
+            padding-right: .5em;
+            opacity: 1;
+            color: $base-color;
+            cursor: default;
+            font-size: 1em;
+        }
+        code {
+            overflow-x: scroll;
+            display: block;
+            padding: 0 1em;
+            background: darken($body-color, 2%);
+            background-image: linear-gradient($body-color 50%, rgba(0, 0, 0, 0) 50%);
+            background-size: 100% 3em;
+            background-position: 0 1.5em;
+            background-origin: content-box;
+            color: $base-color;
+            line-height: 1.5em; // match background position
+            font-size: 1em;
+        }
     }
-    code {
-        overflow-x: scroll;
-        display: block;
-        padding: 0 1em;
-        background: darken($body-color, 2%);
-        background-image: linear-gradient($body-color 50%, rgba(0, 0, 0, 0) 50%);
-        background-size: 100% 3em;
-        background-position: 0 1.5em;
-        background-origin: content-box;
-        color: $base-color;
-        line-height: 1.5em; // match background position
-        font-size: 1em;
-    }
-}
     .css:before { content: "CSS";  }
     .html:before { content: "HTML"; }
     .javascript:before { content: "JavaScript"; }
@@ -173,8 +173,6 @@ Tags: thematic, child, responsive
         font-size: 2em;
         text-decoration: none;
         &:hover {
-            background: none;
-            color: $accent-color-accent;
             @include breakpoint(large) {
                 font-size: 2.5em;
             }
