@@ -264,10 +264,10 @@ function childtheme_override_postfooter() {
         $postfooter = '<footer class="entry-utility">';
         $postfooter .= '<ul class="main-utilities">';
         $postfooter .= '<li class="icon-calendar">' . thematic_postmeta_entrydate() . '</li>';
-        $postfooter .= '<li class="icon-folder">' . thematic_postfooter_postcategory() . '</li>';
+   //     $postfooter .= '<li class="icon-folder">' . thematic_postfooter_postcategory() . '</li>'; // disable tags/categories till I fix them
         $postfooter .= '<li class="icon-comment">' . thematic_postfooter_postcomments() . '</li>';
         if ( $tagsection ) {
-            $postfooter .= '<li class="icon-tag">' . thematic_postfooter_posttags() . '</li>';
+   //         $postfooter .= '<li class="icon-tag">' . thematic_postfooter_posttags() . '</li>';
         }
         if ( is_user_logged_in() ) {
                 $postfooter .= '<li class="icon-pencil">' . thematic_postfooter_posteditlink() . '</li>';
