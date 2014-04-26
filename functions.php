@@ -1,15 +1,6 @@
 <?php
 
 /**
- * Notes
- *
- * Optiing to use Modernizr.... but just load shim, that way if you do want additional functionality you can just replace the file with a custom build...
- * WP Screenshot PNG size changed http://codex.wordpress.org/Theme_Development#Screenshot
- *
- */
-
-
-/**
  * Remove Parent Styling
  *
  * Removes the default Thematic CSS styling completely.
@@ -64,6 +55,7 @@ function childtheme_deregister_styles() {
     wp_deregister_style('contact-form-7');
     // remove like 2 bullshit classes from jetpack on a individual CSS file
     wp_deregister_style('jetpack-widgets');
+    wp_deregister_style('jetpack-subscriptions-css');
 }
 add_action('wp_print_styles', 'childtheme_deregister_styles', 100);
 
@@ -82,9 +74,11 @@ function childtheme_deregister_scripts() {
 add_action( 'wp_print_scripts', 'childtheme_deregister_scripts', 100 );
 
 /**
- * Modernizr add 'no-js'.
+ * Modernizr add 'no-js' class
  *
- * This filter adds the 'no-js' class to the HTML tag, which Modernizr will remove (if Javascript is enabled) and replace it with a "js" class. This is super useful for providing CSS fallbacks, but Modernizr does a ton more.
+ * This filter adds the 'no-js' class to the HTML tag, which Modernizr will remove
+ * (if Javascript is enabled) and replace it with a "js" class. This is super useful
+ * for providing CSS fallbacks, but Modernizr does a ton more.
  *
  * Reference http://modernizr.com/docs/
  *
@@ -99,10 +93,12 @@ add_filter( 'thematic_html_class', 'childtheme_html_class' );
 /**
  * Add Favicon
  *
- * The Favicon is actually really complicated, but a quick and dirty method is to at least add a 32x32 ico file (at the least).
+ * The Favicon is actually really complicated, but a quick and dirty method is to at
+ * least add a 32x32 ,ico file (at the least).
  *
  * Reference http://www.jonathantneal.com/blog/understand-the-favicon/
  * Photoshop Plugin to save ICO files http://www.telegraphics.com.au/sw/
+ *
  */
 
 function childtheme_add_favicon() { ?>
@@ -113,7 +109,9 @@ add_action('wp_head', 'childtheme_add_favicon');
 /**
  * Clean up <head> of Site
  *
- * Wordpress by default throws in all kinds of relational links, for SEO purposes, sometimes they work, and sometimes they don't. A Plugin like WordPress SEO can handle some of these also, but others are not included.
+ * Wordpress by default throws in all kinds of relational links, for SEO purposes,
+ * sometimes they work and sometimes they don't. A Plugin like WordPress SEO can
+ * handle some of these also, but others are not included.
  *
  * Reference http://scottnix.com/polishing-thematics-head/
  *
@@ -141,7 +139,6 @@ remove_action('wp_head', 'wp_shortlink_wp_head');
  *
  */
 
-// register two additional custom menu slots
 function childtheme_register_menus() {
     if ( function_exists( 'register_nav_menu' )) {
         register_nav_menu( 'secondary-menu', 'Secondary Menu' );
@@ -151,9 +148,32 @@ function childtheme_register_menus() {
 add_action('thematic_child_init', 'childtheme_register_menus');
 
 /**
+ * Remove Widgets in Admin.
+ *
+ * All this does is removes the widgets from being selected in the admin. This is helpful
+ * if you aren't using the widgets, no point in looking at them or having to explain why
+ * they are there.
+ *
+ */
+
+function childtheme_hide_areas($content) {
+    unset($content['Index Top']);
+    unset($content['Index Insert']);
+    unset($content['Index Bottom']);
+    unset($content['Single Top']);
+    unset($content['Single Insert']);
+    unset($content['Single Bottom']);
+    unset($content['Page Top']);
+    unset($content['Page Bottom']);
+    return $content;
+}
+add_filter('thematic_widgetized_areas', 'childtheme_hide_areas');
+
+/**
  * Responsive Menu Structure
  *
- * Modified to add toggle to label in link format instead of <h3> that is defaulted from the parent theme. This basic structure comes from a
+ * Modified to add toggle in link format instead of <h3> that is defaulted from the parent
+ * theme. his basic structure comes from a mobile pattern from the link below.
  *
  * Reference http://codepen.io/bradfrost/pen/vljdx
  *
@@ -177,12 +197,12 @@ function childtheme_override_access() {
 /**
  * Single Post for Blog
  *
- * Shows single pages, instead of a default of 5
+ * Shows a full single post on homepage, instead of a default of 5
+ *
+ * Reference: http://codex.wordpress.org/Plugin_API/Action_Reference/pre_get_posts
  *
  */
 
-// show one post per page on homepage
-// http://codex.wordpress.org/Plugin_API/Action_Reference/pre_get_posts
 function childtheme_home_pagesize( $query ) {
     if ( is_admin() || ! $query->is_main_query() )
         return;
@@ -209,6 +229,7 @@ function childtheme_override_nav_above() {
     // silence
 }
 
+// keep nav below, but this setup changes the wording (adding plural) on category sections which show more than one post.
 function childtheme_override_nav_below() {
     if (is_single() || is_home()) { ?>
         <div id="nav-below" class="navigation">
@@ -227,7 +248,9 @@ function childtheme_override_nav_below() {
 /**
  * Thematic Featured Image Size
  *
- * Appears on anything with an excerpt set, the default is 100x100 which is ridiculously small, this swaps it out for a more manageable 300x300, but can be easily changed by modifying the sizes.
+ * Appears on anything with an excerpt set, the default is 100x100 which is ridiculously
+ * small, this swaps it out for a more manageable 300x300, but can be easily changed by
+ * modifying the sizes.
  *
  */
 
@@ -237,12 +260,58 @@ function childtheme_post_thumb_size($size) {
 }
 add_filter('thematic_post_thumb_size', 'childtheme_post_thumb_size');
 
+/*
+ * Modify Widget Titles
+ *
+ * Thematic now inputs an H1 for the asides, in HTML5 this is ok, but SEO's will cringe.
+ * I haven't really seen any data showing that using H1's is fine for search engines,
+ * and from what I have seen no one has really been bold enough to jump on that band
+ * wagon, so this reverts them back to H4's instead.
+ *
+ */
+
+function childtheme_before_widgettitle( $content ) {
+    $content = "<h4 class=\"widgettitle\">";
+    return $content;
+}
+add_filter( 'thematic_before_title', 'childtheme_before_widgettitle');
+
+function childtheme_after_widgettitle( $content ) {
+    $content = "</h4>\n";
+    return $content;
+}
+add_filter( 'thematic_after_title', 'childtheme_after_widgettitle');
+
+
+/*
+ * Modify Search Widget
+ *
+ * This is pretty much required for responsive sites, you can set it with CSS, but this
+ * is a backup to make sure the box isn't super big. Also the second function allows you
+ * to change the text, the default text is stupid, "Type to search and hit enter" or
+ * something like that, way too long.
+ *
+ */
+
+// shorten the input box length
+function childtheme_thematic_search_form_length() {
+    return "16";
+}
+add_filter('thematic_search_form_length', 'childtheme_thematic_search_form_length');
+
+// change the default search box text
+function childtheme_search_field_value() {
+    return "Search";
+}
+add_filter('search_field_value', 'childtheme_search_field_value');
+
 /**
  * Modify the Post Header and Post Footer
  *
- * Moves the elemenets and changes structure of the postheader and postfooter to rearrange things for a cleaner look, moves date below post and adds icon fonts in a list style format instead of the default which is just a single line.
+ * Moves the elemenets and changes structure of the postheader and postfooter to rearrange
+ * things for a cleaner look, moves date below post and adds icon fonts in a list style
+ * format instead of the default which is just a single line.
  *
- * Location
  */
 
 // kill the post header information, loading this below in the post footer
@@ -324,44 +393,13 @@ function childtheme_override_postfooter_posttags() {
     return apply_filters('thematic_postfooter_posttags',$posttags);
 }
 
-
-
-
-
-
-
-// from original
-
-/*// hide unused widget areas inside the WordPress admin
-function childtheme_hide_areas($content) {
-    unset($content['Index Top']);
-    unset($content['Index Insert']);
-    unset($content['Index Bottom']);
-    unset($content['Single Top']);
-    unset($content['Single Insert']);
-    unset($content['Single Bottom']);
-    unset($content['Page Top']);
-    unset($content['Page Bottom']);
-    return $content;
-}
-add_filter('thematic_widgetized_areas', 'childtheme_hide_areas');
-*/
-
-// cuts the default size of the search input field down to cut overlap
-// css sizes this fine, but it could be placed in things other than aside, this is back up. ;)
-function childtheme_thematic_search_form_length() {
-    return "16";
-}
-add_filter('thematic_search_form_length', 'childtheme_thematic_search_form_length');
-
-// change the default search box text
-function childtheme_search_field_value() {
-    return "Search";
-}
-add_filter('search_field_value', 'childtheme_search_field_value');
-
-
-
+/*
+ * Social Font Icons
+ *
+ * Section for a few social icon boxes, these are handled through icon fonts, there is
+ * text available so they are somewhat more usable.
+ *
+ */
 
 function childtheme_social_icon_fonts() { ?>
     <aside id="social" class="aside social">
@@ -376,30 +414,3 @@ function childtheme_social_icon_fonts() { ?>
     </aside>
 <?php }
 add_action('thematic_belowmainasides', 'childtheme_social_icon_fonts');
-
-
-// override functionality of Thematic HTML5 Plugin and Thematic
-// originally H1 on Thematic HTML5 Plugin, originally H3 on Themaitc, changed this to an H4 for fun.
-
-// filter the title opening of widget areas
-function childtheme_before_widgettitle( $content ) {
-    $content = "<h4 class=\"widgettitle\">";
-    return $content;
-}
-add_filter( 'thematic_before_title', 'childtheme_before_widgettitle', 11 );
-
-// filter the title closing of widget area
-function childtheme_after_widgettitle( $content ) {
-    $content = "</h4>\n";
-    return $content;
-}
-add_filter( 'thematic_after_title', 'childtheme_after_widgettitle', 11 );
-
-
-function childtheme_modify_excerpt($text) {
-   return str_replace('[...]', '.... <a href="'.get_permalink().'" class="more-link">Read More &raquo;</a>', $text);
-}
-add_filter('get_the_excerpt', 'childtheme_modify_excerpt');
-
-
-
