@@ -402,7 +402,7 @@ function childtheme_override_postfooter_posttags() {
  */
 
 function childtheme_social_icon_fonts() { ?>
-    <aside id="social" class="aside social">
+    <aside class="aside social">
         <section>
             <ul class="social-icons">
               <li class="social-twitter"><a class="icon-twitter" href="http://twitter.com/usabilitydick" title="Twitter"><span>Twitter</span></a></li>
