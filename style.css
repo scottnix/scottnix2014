@@ -1043,7 +1043,7 @@ input[type="submit"]:hover {
   }
   .nav-previous a:hover,
   .nav-next a:hover {
-    background: #2b3c4e;
+    background: #2f4154;
     -webkit-transition: all .5s ease-in-out;
     transition: all .5s ease-in-out;
   }
@@ -1341,6 +1341,11 @@ video {
 }
 .wpcf7 .wpcf7-response-output {
   margin: 1.5em 0;
+}
+
+.comment-subscription-form {
+  margin: 0;
+  font-size: 90%;
 }
 
 .tagline, .comment-notes, .pings .comment-content, .wpcf7 .screen-reader-response {
