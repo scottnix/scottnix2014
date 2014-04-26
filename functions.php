@@ -55,7 +55,7 @@ function childtheme_deregister_styles() {
     wp_deregister_style('contact-form-7');
     // remove like 2 bullshit classes from jetpack on a individual CSS file
     wp_deregister_style('jetpack-widgets');
-    wp_deregister_style('jetpack-subscriptions-css');
+    wp_deregister_style('jetpack-subscriptions');
 }
 add_action('wp_print_styles', 'childtheme_deregister_styles', 100);
 
