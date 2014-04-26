@@ -12,6 +12,7 @@ Todo
 * There are a couple things I will change, and what looks like a couple bugs in Thematic 2.0, or if not bugs something is different and I need to find the time to really look.
 * Docs
 * Strip this theme to nothing and replace the Responsive Base theme, a starter theme for Thematic.
+* Figure out how to get Susy to not even bother with the box-model, since it is covered by the border boxing everything.
 
 Demo
 -------------
