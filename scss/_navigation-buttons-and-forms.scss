@@ -239,7 +239,7 @@ input[type="submit"] {
         vertical-align: middle;
         transform: translatez(0);
         &:hover {
-            background: $base-color-secondary;
+            background: $base-color-accent;
             transition: all .5s ease-in-out;
         }
         span {
