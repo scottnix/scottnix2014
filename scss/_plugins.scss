@@ -1,3 +1,4 @@
+// contact form 7 styling
 .wpcf7 {
 	[role="alert"] {
 		display: block;
@@ -16,4 +17,11 @@
 	.wpcf7-response-output {
 		margin: $spacing 0;
 	}
+}
+
+// jetpack subscribe to comments CSS
+
+.comment-subscription-form {
+	margin: 0;
+	font-size: 90%;
 }
