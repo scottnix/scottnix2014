@@ -1,4 +1,3 @@
-// import compass - compass-style.org/reference/compass/
 // import susy - susy.oddbird.net/
 // ==========================================================================
 
@@ -21,7 +20,7 @@ $body-font: Georgia, Times, "Times New Roman", serif;
 $body-background: #34495e;
 $body-color: #ecf0f1;
 
-$link-color: lighten(#1ccdaa, 6%);
+$link-color: #26e1bc;
 $link-focus: lighten($link-color, 30%);
 $link-hover: lighten($link-color, 30%);
 
@@ -29,13 +28,9 @@ $base-color: #34495e;
 $base-color-secondary: darken($base-color, 5%);
 $base-color-accent: lighten($base-color-secondary, 2%);
 
-$accent-color: lighten(#1ccdaa, 6%);
+$accent-color: #26e1bc;
 $accent-color-secondary: darken($accent-color, 10%);
 $accent-color-accent: lighten($accent-color, 25%);
-
-$transparency-light: rgba(black, .02);
-$transparency-medium: rgba(black, .05);
-$transparency-dark: rgba(black, .1);
 
 $selection-background: #fe57a1; // html5boilerplate pink lives on!
 $selection-color: #f1f1f1;
