@@ -6,10 +6,8 @@
         list-style: none;
     }
     ol {
-        margin: 0 0 $spacing;
         padding: 0;
         list-style: none;
-        border-bottom: none;
     }
     li {
         margin: 0 0 $spacing;
@@ -50,9 +48,7 @@
     font-weight: bold;
 }
 .comment-meta {
-    @include breakpoint(medium) {
         font-size: 90%;
-    }
 }
 .comment-content {
     clear: both;
@@ -61,14 +57,14 @@
         font-size: 90%;
     }
     a {
-        border-bottom: 1px dotted $accent-color;
+        border-bottom: thin dotted $accent-color;
     }
 }
-.comment-reply-link {
+.comment-replylink {
     padding: 0 0 $spacing/2;
     text-align: right;
     a {
-        padding: .5em;
+        padding: $spacing-alpha;
         font-size: 80%;
     }
 }
@@ -78,7 +74,7 @@
 .pings {
     margin-bottom: $spacing;
     .comment-author {
-        font-size: 90%;
+        font-size: 80%;
         font-weight: normal;
     }
     .comment-content {
@@ -89,8 +85,8 @@
     position: relative;
 }
 [id="cancel-comment-reply-link"] {
+    float: right;
     font-weight: normal;
-    display:block;
 }
 .form-section {
     input {
