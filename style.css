@@ -8,7 +8,7 @@ Template: thematic
 Version: 0.1.0
 Tags: thematic, child, responsive
 */
-/*!
+/*
   ________                __           ____              __                __   _
  /_  __/ /_  ____ _____  / /_______   / __/___  _____   / /   ____  ____  / /__(_)___  ____ _
   / / / __ \/ __ `/ __ \/ //_/ ___/  / /_/ __ \/ ___/  / /   / __ \/ __ \/ //_/ / __ \/ __ `/
@@ -90,7 +90,7 @@ h5 {
   line-height: 1.1818em;
 }
 
-h6, .page-title {
+h6, .page-title, .content-column h2, .content-column .site-title {
   margin: 0 0 1.4444em;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 1em;
@@ -99,8 +99,8 @@ h6, .page-title {
 
 a {
   background: transparent;
-  text-decoration: none;
   color: #26e1bc;
+  text-decoration: none;
   -webkit-transition: all .5s ease-in-out;
   transition: all .5s ease-in-out;
 }
@@ -108,12 +108,11 @@ a:visited {
   color: #26e1bc;
 }
 a:focus {
-  color: #adf4e6;
+  color: #acf4e6;
   outline: thin dotted;
 }
 a:active, a:hover {
-  color: #adf4e6;
-  outline: 0;
+  color: #acf4e6;
 }
 
 img {
@@ -174,7 +173,7 @@ strong {
 abbr[title],
 acronym {
   cursor: help;
-  border-bottom: 1px dotted;
+  border-bottom: thin dotted;
 }
 
 dfn {
@@ -182,7 +181,7 @@ dfn {
 }
 
 ins {
-  border-bottom: 1px solid #26e1bc;
+  border-bottom: thin solid #26e1bc;
   text-decoration: none;
 }
 
@@ -476,33 +475,31 @@ td {
   margin-bottom: 2em;
 }
 
-@media (min-width: 50em) {
-  .page-template-template-page-fullwidth-php [id="container"] {
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
-    width: 100%;
-    float: left;
-    padding-left: 0.83333%;
-    padding-right: 0.83333%;
-  }
+/*
+
+// fullwidth template overrides
+.page-template-template-page-fullwidth-php {
+    .content-wrapper {
+
+        @include breakpoint(large) {
+            @include span(full);
+        }
+    }
 }
 
-.single-attachment [id="container"] {
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
-  width: 100%;
-  float: left;
-  padding-left: 0.83333%;
-  padding-right: 0.83333%;
-}
-.single-attachment [id="primary"],
-.single-attachment [id="secondary"],
-.single-attachment [id="respond"] {
-  display: none;
+// attachments template overrides
+.single-attachment {
+    .content-wrapper {
+        @include span(full);
+    }
+    .primary-aside,
+    .secondary-aside,
+    .comment-respond {
+        display: none;
+    }
 }
 
+*/
 /* ==========================================================================
    content styles
    ========================================================================== */
@@ -542,8 +539,7 @@ td {
 .entry-content pre:before {
   position: absolute;
   top: 0;
-  right: 0;
-  padding-right: .5em;
+  right: 5px;
   opacity: 1;
   color: #34495e;
   cursor: default;
@@ -562,7 +558,6 @@ td {
   background-origin: content-box;
   color: #34495e;
   line-height: 1.5em;
-  font-size: 1em;
 }
 .entry-content .css:before {
   content: "CSS";
@@ -590,14 +585,13 @@ td {
   color: #26e1bc;
 }
 .entry-utility ul {
-  margin: 0;
   padding: 0;
 }
 .entry-utility li {
   list-style: none;
 }
 .entry-utility a {
-  border-bottom: 1px dotted #26e1bc;
+  border-bottom: thin dotted #26e1bc;
 }
 .entry-utility [class*="icon-"]:before {
   padding-right: 1em;
@@ -611,9 +605,9 @@ td {
 }
 .aside ul,
 .aside section {
-  list-style: none;
   padding: 0;
   margin: 0 0 1.5em;
+  list-style: none;
 }
 .aside ul ul li,
 .aside section ul li {
@@ -634,7 +628,6 @@ td {
 .aside [id="searchsubmit"] {
   display: none;
 }
-
 .site-content .aside {
   margin: 0 0 1.5em;
 }
@@ -649,9 +642,6 @@ td {
   margin: 0;
 }
 
-.social-icons {
-  padding: 0;
-}
 .social-icons li {
   float: left;
   width: 25%;
@@ -665,9 +655,6 @@ td {
   .social-icons a:hover {
     font-size: 2.5em;
   }
-}
-.social-icons span {
-  display: none;
 }
 
 /* images
@@ -1144,10 +1131,8 @@ input[type="submit"]:hover {
   list-style: none;
 }
 .comments ol {
-  margin: 0 0 1.5em;
   padding: 0;
   list-style: none;
-  border-bottom: none;
 }
 .comments li {
   margin: 0 0 1.5em;
@@ -1182,10 +1167,8 @@ input[type="submit"]:hover {
   font-weight: bold;
 }
 
-@media (min-width: 30em) {
-  .comment-meta {
-    font-size: 90%;
-  }
+.comment-meta {
+  font-size: 90%;
 }
 
 .comment-content {
@@ -1197,15 +1180,15 @@ input[type="submit"]:hover {
   }
 }
 .comment-content a {
-  border-bottom: 1px dotted #26e1bc;
+  border-bottom: thin dotted #26e1bc;
 }
 
-.comment-reply-link {
+.comment-replylink {
   padding: 0 0 0.75em;
   text-align: right;
 }
-.comment-reply-link a {
-  padding: .5em;
+.comment-replylink a {
+  padding: 0.5em;
   font-size: 80%;
 }
 
@@ -1213,7 +1196,7 @@ input[type="submit"]:hover {
   margin-bottom: 1.5em;
 }
 .pings .comment-author {
-  font-size: 90%;
+  font-size: 80%;
   font-weight: normal;
 }
 
@@ -1222,8 +1205,8 @@ input[type="submit"]:hover {
 }
 
 [id="cancel-comment-reply-link"] {
+  float: right;
   font-weight: normal;
-  display: block;
 }
 
 .form-section input {
@@ -1268,7 +1251,7 @@ input[type="submit"]:hover {
 }
 [id="author-info"] .avatar {
   float: left;
-  margin: 0 1em 0;
+  margin: 0 0 0 1em;
 }
 
 .error404 input[type="submit"] {
@@ -1334,7 +1317,7 @@ video {
   margin-bottom: 1.5em;
   padding: 1em;
   border: 1px solid #26e1bc;
-  color: #96f1df;
+  color: #96f0df;
 }
 .wpcf7 .ajax-loader {
   display: none;
@@ -1348,7 +1331,7 @@ video {
   font-size: 90%;
 }
 
-.tagline, .comment-notes, .pings .comment-content, .wpcf7 .screen-reader-response {
+.tagline, .social-icons span, .comment-notes, .pings .comment-content, .wpcf7 .screen-reader-response {
   border: 0;
   clip: rect(0 0 0 0);
   height: 1px;
@@ -1359,8 +1342,9 @@ video {
   width: 1px;
 }
 
-.focusable.tagline:active, .focusable.comment-notes:active, .pings .focusable.comment-content:active, .wpcf7 .focusable.screen-reader-response:active,
+.focusable.tagline:active, .social-icons span.focusable:active, .focusable.comment-notes:active, .pings .focusable.comment-content:active, .wpcf7 .focusable.screen-reader-response:active,
 .focusable.tagline:focus,
+.social-icons span.focusable:focus,
 .focusable.comment-notes:focus,
 .pings .focusable.comment-content:focus,
 .wpcf7 .focusable.screen-reader-response:focus {

@@ -6,13 +6,11 @@ $susy: (
   math: fluid,
   output: float,
   gutter-position: inside,
-  global-box-sizing: content-box,
+
 );
 
 .site-wrapper {
     @include container(60em); // set susy grid container
-    @include show-grid(); // set susy grid overlay
-  //  @include box-sizing(content-box); // doesn't add the padding to container width
     margin: 0 auto;
     padding: 0 $spacing-beta;
 }
@@ -22,7 +20,6 @@ $susy: (
     @include breakpoint(large) {
         @include span(last 4);
     }
-
 }
 .site-main {
 
@@ -77,9 +74,12 @@ $susy: (
 // page templates
 // ==========================================================================
 
+// page templates are currently disabled, the layout doesn't really work with layouts.
+/*
+
 // fullwidth template overrides
 .page-template-template-page-fullwidth-php {
-    [id="container"] {
+    .content-wrapper {
 
         @include breakpoint(large) {
             @include span(full);
@@ -89,12 +89,14 @@ $susy: (
 
 // attachments template overrides
 .single-attachment {
-    [id="container"] {
+    .content-wrapper {
         @include span(full);
     }
-    [id="primary"],
-    [id="secondary"],
-    [id="respond"] {
+    .primary-aside,
+    .secondary-aside,
+    .comment-respond {
         display: none;
     }
 }
+
+*/

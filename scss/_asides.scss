@@ -1,0 +1,60 @@
+.aside {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    ul,
+    section {
+        padding: 0;
+        margin: 0 0 $spacing;
+        list-style: none;
+        ul {
+            li {
+                padding: $spacing-alpha/2 0;
+            }
+            ul {
+                margin: 0 0 0 $spacing-alpha;
+            }
+        }
+    }
+    img,
+    select {
+        height: auto;
+        max-width: 100%;
+    }
+    [id="searchform"] input {
+        width: 100%;
+    }
+    [id="searchsubmit"] {
+        display: none;
+    }
+    .site-content & {
+        margin: 0 0 $spacing;
+    }
+}
+.widgettitle {
+    @extend h4;
+    padding: $spacing-alpha 0;
+    border-bottom: 5px solid $base-color-secondary;
+}
+.social ul,
+.social section {
+    margin: 0;
+}
+.social-icons {
+    li {
+        float: left;
+        width: 25%;
+        text-align: center;
+    }
+    a {
+        font-size: 2em;
+        text-decoration: none;
+        &:hover {
+            @include breakpoint(large) {
+                font-size: 2.5em;
+            }
+        }
+    }
+    span {
+        @extend %visuallyhidden;
+    }
+}

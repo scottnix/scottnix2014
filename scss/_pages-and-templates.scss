@@ -7,6 +7,9 @@
 }
 .content-column {
     margin: 0 0 $spacing;
+    h2 {
+        @extend h6;
+    }
 
     @include breakpoint(medium) {
         float: left;
@@ -14,13 +17,14 @@
     }
 }
 
-// author info template
+// author biography template, in thematic options
+// using this feature exposes authors email address
 [id="author-info"] {
     overflow: hidden;
     margin: 0 0 $spacing;
     .avatar {
         float: left;
-        margin: 0 $spacing-beta 0;
+        margin: 0 0 0 $spacing-beta;
     }
 }
 

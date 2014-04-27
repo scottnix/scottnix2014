@@ -61,8 +61,8 @@ h6 {
 }
 a {
     background: transparent;
-    text-decoration: none;
     color: $link-color;
+    text-decoration: none;
     transition: all .5s ease-in-out;
     &:visited {
         color: $link-color;
@@ -74,7 +74,6 @@ a {
     &:active,
     &:hover {
         color: $link-hover;
-        outline: 0;
     }
 }
 img {
@@ -111,7 +110,7 @@ ol ol {
     margin-bottom: 0;
 }
 dl {
-    margin: 0 1em;
+    margin: 0 $spacing-beta;
 }
 dt {
     font-weight: bold;
@@ -126,13 +125,13 @@ strong {
 abbr[title],
 acronym {
     cursor: help;
-    border-bottom: 1px dotted;
+    border-bottom: thin dotted;
 }
 dfn {
     font-style: italic;
 }
 ins {
-    border-bottom: 1px solid $accent-color;
+    border-bottom: thin solid $accent-color;
     text-decoration: none;
 }
 caption {
