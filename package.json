@@ -1,0 +1,27 @@
+{
+  "name": "scottnix2014",
+  "version": "0.0.1",
+  "description": "WordPress Theme",
+  "main": "gulpfile.js",
+  "devDependencies": {
+    "gulp": "~3.6.0",
+    "gulp-cache": "~0.1.3",
+    "gulp-livereload": "~1.2.0",
+    "tiny-lr": "~0.0.5",
+    "gulp-notify": "~1.2.4",
+    "gulp-ruby-sass": "~0.4.1",
+    "gulp-rename": "~1.2.0",
+    "gulp-autoprefixer": "~0.0.6",
+    "gulp-imagemin": "~0.1.5",
+    "gulp-minify-css": "~0.3.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/scottnix/scottnix2014.git"
+  },
+  "author": "Scott Nix",
+  "bugs": {
+    "url": "https://github.com/scottnix/scottnix2014/issues"
+  },
+  "homepage": "https://github.com/scottnix/scottnix2014"
+}
