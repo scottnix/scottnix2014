@@ -1,18 +1,6 @@
 <?php
 
 /**
- * Remove Parent Styling
- *
- * Removes the default Thematic CSS styling completely.
- *
- */
-
-function childtheme_remove_parent_styling( $dependencies ) {
-    return array();
-}
-add_filter( 'thematic_childtheme_style_dependencies', 'childtheme_remove_parent_styling' );
-
-/**
  * Remove Thematic Menu JavaScript
  *
  * Removes the default Thematic JS scripts (Superfish) completely.
