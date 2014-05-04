@@ -21,9 +21,6 @@ $susy: (
         @include span(last 4);
     }
 }
-.site-main {
-
-}
 .content-wrapper {
     margin: $spacing-delta 0;
 
@@ -31,9 +28,6 @@ $susy: (
 	    @include span(8);
         @include suffix(1);
 	}
-}
-.hentry {
-    padding: 0 0 $spacing-delta;
 }
 .primary-aside,
 .secondary-aside,
@@ -62,10 +56,7 @@ $susy: (
 }
 
 // grouping common layout specific properties identified above
-
-
-
-.content-wrapper,
+.hentry,
 .site-footer,
 [id="subsidiary"] {
     margin-bottom: $spacing-delta;
@@ -76,7 +67,6 @@ $susy: (
 
 // page templates are currently disabled, the layout doesn't really work with layouts.
 /*
-
 // fullwidth template overrides
 .page-template-template-page-fullwidth-php {
     .content-wrapper {
@@ -98,5 +88,4 @@ $susy: (
         display: none;
     }
 }
-
 */
