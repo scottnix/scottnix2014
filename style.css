@@ -420,10 +420,6 @@ td {
   }
 }
 
-.hentry {
-  padding: 0 0 2em;
-}
-
 @media (min-width: 50em) {
   .primary-aside,
   .secondary-aside,
@@ -469,14 +465,13 @@ td {
   }
 }
 
-.content-wrapper,
+.hentry,
 .site-footer,
 [id="subsidiary"] {
   margin-bottom: 2em;
 }
 
 /*
-
 // fullwidth template overrides
 .page-template-template-page-fullwidth-php {
     .content-wrapper {
@@ -498,7 +493,6 @@ td {
         display: none;
     }
 }
-
 */
 /* ==========================================================================
    content styles
