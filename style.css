@@ -39,6 +39,8 @@ body {
   margin: 0;
   overflow-y: scroll;
   background: #34495e;
+  background: -webkit-linear-gradient(0deg, #34495e, #335666);
+  background: linear-gradient(90deg, #34495e, #335666);
   font-family: Georgia, Times, "Times New Roman", serif;
   font-size: 105%;
   color: #ecf0f1;
@@ -46,11 +48,15 @@ body {
 }
 @media (min-width: 30em) {
   body {
+    background: -webkit-linear-gradient(0deg, #34495e, #325e6b);
+    background: linear-gradient(90deg, #34495e, #325e6b);
     font-size: 112.5%;
   }
 }
 @media (min-width: 50em) {
   body {
+    background: -webkit-linear-gradient(0deg, #34495e, #316670);
+    background: linear-gradient(90deg, #34495e, #316670);
     font-size: 120%;
   }
 }
