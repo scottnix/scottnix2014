@@ -11,18 +11,18 @@ body {
     margin: 0;
     overflow-y: scroll;
     background: $body-background;
-    background: linear-gradient(90deg, $body-background, #335666);
+    background: linear-gradient(90deg, $body-background, #335666); // random color
     font-family: $body-font;
     font-size: 105%;
     color: $body-color;
     line-height: 1.625;
 
     @include breakpoint(medium) {
-        background: linear-gradient(90deg, $body-background, #325e6b);
+        background: linear-gradient(90deg, $body-background, #325e6b); // random color
         font-size: 112.5%;
     }
     @include breakpoint(large) {
-        background: linear-gradient(90deg, $body-background, #316670);
+        background: linear-gradient(90deg, $body-background, #316670); // random colors just look nice :)
         font-size: 120%;
     }
 }
