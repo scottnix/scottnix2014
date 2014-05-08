@@ -129,7 +129,8 @@ p,
 address,
 figure,
 embed,
-.video-container {
+.video-container,
+iframe {
   margin: 0 0 1.5em;
 }
 
