@@ -1178,11 +1178,13 @@ input[type="submit"]:hover {
   border-bottom: thin dotted #26e1bc;
 }
 
-.comment-replylink {
+.comment-replylink,
+.comment-reply-link {
   padding: 0 0 0.75em;
   text-align: right;
 }
-.comment-replylink a {
+.comment-replylink a,
+.comment-reply-link a {
   padding: 0.5em;
   font-size: 80%;
 }
