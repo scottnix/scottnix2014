@@ -60,7 +60,8 @@
         border-bottom: thin dotted $accent-color;
     }
 }
-.comment-replylink {
+.comment-replylink,  // wtf is up with this, keep getting both classes, need to look into this
+.comment-reply-link {
     padding: 0 0 $spacing/2;
     text-align: right;
     a {
