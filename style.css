@@ -539,16 +539,13 @@ td {
 .entry-content pre:before {
   position: absolute;
   top: 0;
-  right: 5px;
-  opacity: 1;
+  right: 0.5em;
   color: #34495e;
-  cursor: default;
-  font-size: 1em;
 }
 .entry-content pre code {
   overflow-x: scroll;
   display: block;
-  padding: 0 1em;
+  padding: 0 1em 1em;
   background: #e6ebed;
   background-image: -webkit-gradient(linear, left top, left bottom, from(#ecf0f1), to(transparent));
   background-image: -webkit-linear-gradient(#ecf0f1 50%, transparent 50%);
@@ -817,11 +814,14 @@ img.aligncenter {
 .menu li {
   margin-bottom: 1px;
 }
-.menu li a {
+.menu a {
   display: block;
   padding: 0.5em;
   position: relative;
   background-color: #2b3c4e;
+}
+.menu a:hover {
+  background-color: #2f4154;
 }
 
 @media (min-width: 50em) {
@@ -833,13 +833,9 @@ img.aligncenter {
     overflow: hidden;
     max-height: none;
   }
-
-  .menu li a:hover {
-    background-color: #2f4154;
-  }
 }
 fieldset {
-  border: 0.25em solid #26e1bc;
+  border: 0.5em solid #26e1bc;
   margin: 0 0.5em;
   padding: 0.5em;
 }
@@ -1054,7 +1050,6 @@ input[type="submit"]:hover {
   }
   .nav-previous a:hover {
     margin-left: 0;
-    border-left: none;
   }
   .nav-previous a:before {
     content: "";
