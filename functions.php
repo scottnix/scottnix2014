@@ -26,8 +26,8 @@ add_action('wp_enqueue_scripts','childtheme_remove_superfish', 9);
 function childtheme_script_manager() {
     // wp_register_script template ( $handle, $src, $deps, $ver, $in_footer );
 
-    // registers modernizr script, childtheme path, no dependency, no version, loads in header
-    wp_register_script('modernizr-js', get_stylesheet_directory_uri() . '/js/modernizr.js', false, false, false);
+    // registers modernizr script, childtheme path, no dependency, no version, loads in footer
+    wp_register_script('modernizr-js', get_stylesheet_directory_uri() . '/js/modernizr.js', false, false, true);
     // registers misc custom script, childtheme path, yes dependency is jquery, no version, loads in footer
     wp_register_script('custom-js', get_stylesheet_directory_uri() . '/js/custom.js', array('jquery'), false, true);
 
@@ -43,6 +43,7 @@ function childtheme_deregister_styles() {
     wp_deregister_style('contact-form-7');
     // remove like 2 bullshit classes from jetpack on a individual CSS file
     wp_deregister_style('jetpack-widgets');
+    // remove 2 more bullshit classes from jetpack, same as above
     wp_deregister_style('jetpack-subscriptions');
 }
 add_action('wp_print_styles', 'childtheme_deregister_styles', 100);
@@ -60,6 +61,25 @@ function childtheme_deregister_scripts() {
      }
 }
 add_action( 'wp_print_scripts', 'childtheme_deregister_scripts', 100 );
+
+/**
+ * Remove jQuery Migrate
+ *
+ * Removes jQuery Migrate, don't do this unless dev in charge of the site and
+ * constantly working on it, this is just a way to cut out one http request.
+ * just delete this function.
+ *
+ * Reference http://aahacreative.com/2013/08/05/remove-jquery-migrate-wordpress-36/
+ *
+ */
+
+function dequeue_jquery_migrate( &$scripts){
+    if( !is_admin() ) {
+        $scripts->remove( 'jquery');
+        $scripts->add( 'jquery', false, array( 'jquery-core' ), '1.10.2' );
+    }
+}
+add_filter( 'wp_default_scripts', 'dequeue_jquery_migrate' );
 
 /**
  * Modernizr add 'no-js' class
