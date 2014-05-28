@@ -15,3 +15,13 @@ jQuery(document).ready(function($) {
         $('.menu').toggleClass('active');
     });
 });
+
+// testing some event tracking
+// developers.google.com/analytics/devguides/collection/analyticsjs/events
+$('.demo').on('click', function() {
+  ga('send', 'event', 'button', 'click', 'demo-link');
+});
+
+$('.download').on('click', function() {
+  ga('send', 'event', 'button', 'click', 'download-link');
+});
