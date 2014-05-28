@@ -18,10 +18,12 @@ jQuery(document).ready(function($) {
 
 // testing some event tracking
 // developers.google.com/analytics/devguides/collection/analyticsjs/events
-$('.demo').on('click', function() {
-  ga('send', 'event', 'button', 'click', 'demo-link');
-});
+jQuery(document).ready(function($) {
+    $('.demo').on('click', function() {
+      ga('send', 'event', 'button', 'click', 'demo-link');
+    });
 
-$('.download').on('click', function() {
-  ga('send', 'event', 'button', 'click', 'download-link');
+    $('.download').on('click', function() {
+      ga('send', 'event', 'button', 'click', 'download-link');
+    });
 });
