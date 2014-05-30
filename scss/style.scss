@@ -135,7 +135,12 @@ This child theme is provided on Github for free at https://github.com/scottnix/s
 
 @import 'images';
 
-/* navigational elements and buttons
+/* navigation main menu
+   ========================================================================== */
+
+@import 'navigation-main-menu';
+
+/* navigation elements and buttons
    ========================================================================== */
 
 @import 'navigation-buttons-and-forms';
