@@ -932,7 +932,6 @@ input::-moz-focus-inner {
   padding: 0;
 }
 
-.button,
 button,
 input[type="submit"] {
   position: relative;
@@ -947,12 +946,12 @@ input[type="submit"] {
   -webkit-transition: all .5s ease-in-out;
   transition: all .5s ease-in-out;
 }
-.button:hover,
 button:hover,
 input[type="submit"]:hover {
   background: #2f4154;
 }
 
+.button,
 .demo,
 .download {
   position: relative;
@@ -966,10 +965,12 @@ input[type="submit"]:hover {
   -webkit-transition: all .5s ease-in-out;
   transition: all .5s ease-in-out;
 }
+.button:hover,
 .demo:hover,
 .download:hover {
   background: #2f4154;
 }
+.button:before,
 .demo:before,
 .download:before {
   padding-right: 1em;
