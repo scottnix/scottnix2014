@@ -160,7 +160,6 @@ input::-moz-focus-inner {
     border: 0;
     padding: 0;
 }
-.button,
 button,
 input[type="submit"] {
     position: relative;
@@ -177,6 +176,7 @@ input[type="submit"] {
         background: $base-color-accent;
     }
 }
+.button,
 .demo,
 .download {
     position: relative;
