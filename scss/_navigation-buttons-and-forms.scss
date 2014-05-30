@@ -183,6 +183,7 @@ input[type="submit"] {
     display: inline-block;
     overflow: visible;
     width: 100%;
+    margin-bottom: 1px; // so if they stack, the background shows through as a border
     padding: $spacing-alpha;
     background: $base-color-secondary;
     color: $accent-color;
