@@ -140,6 +140,34 @@ remove_action('wp_head', 'adjacent_posts_rel_link_wp_head');
 // remove short link
 remove_action('wp_head', 'wp_shortlink_wp_head');
 
+/*
+ * WordPress SEO hack
+ *
+ * Removes the rel="next" and rel="previous" meta tags. The way my site is setup makes these
+ * useless and as an SEO type person it bugs me, otherwise no normal person would care.
+ *
+ */
+
+function genesis() {}
+
+/*
+ * Remove H1 from Blog Description that appears on front page only.
+ *
+ * I don't want multiple H1's, technically the override below could be a lot shorter, but I
+ * want the ability to modify it for when I do switch from showing a blog post on the front
+ * page to a really custom one, so I will correct this later.
+ *
+ */
+
+function childtheme_override_blogdescription() {
+    if ( is_home() || is_front_page() ) {
+        $tag = 'p';
+    } else {
+        $tag = 'p';
+    }
+    echo "\t<$tag id=\"blog-description\" class=\"tagline\">". get_bloginfo( 'description', 'display' ) . "</$tag>\n\n";
+}
+
 /**
  * Register Two Additional Menus
  *
