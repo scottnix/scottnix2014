@@ -176,10 +176,8 @@ function childtheme_override_blogdescription() {
  */
 
 function childtheme_register_menus() {
-    if ( function_exists( 'register_nav_menu' )) {
-        register_nav_menu( 'secondary-menu', 'Secondary Menu' );
-        register_nav_menu( 'tertiary-menu', 'Tertiary Menu' );
-    }
+    register_nav_menu( 'secondary-menu', 'Secondary Menu' );
+    register_nav_menu( 'tertiary-menu', 'Tertiary Menu' );
 }
 add_action('thematic_child_init', 'childtheme_register_menus');
 
@@ -295,6 +293,20 @@ function childtheme_post_thumb_size($size) {
     return $size;
 }
 add_filter('thematic_post_thumb_size', 'childtheme_post_thumb_size');
+
+/*
+ * Thematic Featured Image Text (attributes)
+ *
+ * All this does is remove the "Permalink to" that appears before the image title, just
+ * bugs me, these should be stripped from the parent Thematic Theme, but it is a small battle
+ * so I will let it slide for now.
+ */
+
+function childtheme_post_thumb_attr($attr) {
+    $attr = array('title'   => sprintf( esc_attr__('%s', 'thematic'), the_title_attribute( 'echo=0' ) ) );
+    return $attr;
+}
+add_filter('thematic_post_thumb_attr', 'childtheme_post_thumb_attr');
 
 /*
  * Modify Widget Titles
