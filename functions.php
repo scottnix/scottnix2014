@@ -288,11 +288,19 @@ function childtheme_override_nav_below() {
  *
  */
 
+// add_image_size( 'category-image', 750 );
+
 function childtheme_post_thumb_size($size) {
-    $size = array(300,300);
+    $size = array(750,300);
     return $size;
 }
 add_filter('thematic_post_thumb_size', 'childtheme_post_thumb_size');
+
+// add read more on categories to match wp read more
+function new_excerpt_more( $more ) {
+    return '... <a class="more-link" href="' . get_permalink() . '">Read More</a>';
+}
+add_filter('excerpt_more', 'new_excerpt_more');
 
 /*
  * Thematic Featured Image Text (attributes)
@@ -307,6 +315,9 @@ function childtheme_post_thumb_attr($attr) {
     return $attr;
 }
 add_filter('thematic_post_thumb_attr', 'childtheme_post_thumb_attr');
+
+
+
 
 /*
  * Modify Widget Titles
@@ -462,3 +473,19 @@ function childtheme_social_icon_fonts() { ?>
     </aside>
 <?php }
 add_action('thematic_belowmainasides', 'childtheme_social_icon_fonts');
+
+
+
+// Fucking emojis added in WP
+//
+
+function disable_emojis() {
+  remove_action( 'wp_head', 'print_emoji_detection_script', 7 );
+  remove_action( 'admin_print_scripts', 'print_emoji_detection_script' );
+  remove_action( 'wp_print_styles', 'print_emoji_styles' );
+  remove_action( 'admin_print_styles', 'print_emoji_styles' );
+  remove_filter( 'the_content_feed', 'wp_staticize_emoji' );
+  remove_filter( 'comment_text_rss', 'wp_staticize_emoji' );
+  remove_filter( 'wp_mail', 'wp_staticize_emoji_for_email' );
+}
+add_action( 'init', 'disable_emojis' );
