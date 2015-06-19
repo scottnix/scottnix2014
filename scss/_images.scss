@@ -18,18 +18,15 @@
         }
     }
 }
-.alignleft,
-img.alignleft {
+.alignleft {
     float: left;
     margin-right: $spacing-beta;
 }
-.alignright,
-img.alignright {
+.alignright {
     float: right;
     margin-left: $spacing-beta;
 }
-.aligncenter,
-img.aligncenter {
+.aligncenter {
     display: block;
     margin-left: auto;
     margin-right: auto;

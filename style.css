@@ -675,19 +675,17 @@ td {
 }
 
 .alignleft,
-img.alignleft {
+.test {
   float: left;
   margin-right: 1em;
 }
 
-.alignright,
-img.alignright {
+.alignright {
   float: right;
   margin-left: 1em;
 }
 
-.aligncenter,
-img.aligncenter {
+.aligncenter {
   display: block;
   margin-left: auto;
   margin-right: auto;
@@ -949,7 +947,8 @@ input[type="submit"]:hover {
 
 .button,
 .demo,
-.download {
+.download,
+.more-link {
   position: relative;
   display: inline-block;
   overflow: visible;
@@ -964,12 +963,14 @@ input[type="submit"]:hover {
 }
 .button:hover,
 .demo:hover,
-.download:hover {
+.download:hover,
+.more-link:hover {
   background: #2f4154;
 }
 .button:before,
 .demo:before,
-.download:before {
+.download:before,
+.more-link:before {
   padding-right: 1em;
 }
 

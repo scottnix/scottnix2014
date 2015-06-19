@@ -96,7 +96,8 @@ input[type="submit"] {
 }
 .button,
 .demo,
-.download {
+.download,
+.more-link {
     position: relative;
     display: inline-block;
     overflow: visible;
@@ -218,7 +219,6 @@ input[type="submit"] {
         margin-right: 0;
     }
 }
-.more-link {}
 .edit-link {}
 .page-link,
 .comment-navigation {
